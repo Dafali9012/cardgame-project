@@ -6,4 +6,12 @@ public class SpellCard extends Card {
     public SpellCard() {}
 
     public SpellCard(String title, String description, int damage, int heal) {}
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getHeal() {
+        return heal;
+    }
 }
