@@ -26,4 +26,17 @@ public class CreatureCardTest {
         assertEquals(2, creature.getDefaultDamage());
         assertEquals(2, creature.getDamage());
     }
+
+    @Test
+    public void modifyHealth() {
+        CreatureCard creature = new CreatureCard("Zombie", "Yo it's a Zombie", 6, 2);
+        creature.modifyHealth(6);
+        assertEquals(6, creature.getHealth());
+        creature.modifyHealth(-4);
+        assertEquals(2, creature.getHealth());
+        creature.modifyHealth(2);
+        assertEquals(4, creature.getHealth());
+        creature.modifyHealth(-100);
+        assertEquals(0, creature.getHealth());
+    }
 }

@@ -7,6 +7,8 @@ public class CreatureCard extends Card {
 
     public CreatureCard(String title, String description, int maxHealth, int defaultDamage) {}
 
+    public void modifyHealth(int amount) {}
+
     public int getMaxHealth() {
         return maxHealth;
     }
