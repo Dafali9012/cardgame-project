@@ -9,6 +9,8 @@ public class CreatureCard extends Card {
 
     public void modifyHealth(int amount) {}
 
+    public void modifyDamage(int amount) {}
+
     public int getMaxHealth() {
         return maxHealth;
     }

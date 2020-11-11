@@ -2,14 +2,14 @@
   "creatures": [
     {
       "title": "Zombie",
-      "description": "",
+      "description": "Braaaiiinnsss",
       "maxHealth": 4,
       "defaultDamage": 2,
       "deckAmount": 6
     },
     {
       "title": "Werewolf",
-      "description": "",
+      "description": "Woof woof",
       "maxHealth": 8,
       "defaultDamage": 3,
       "deckAmount": 4
@@ -23,14 +23,14 @@
     },
     {
       "title": "King Rat",
-      "description": "",
+      "description": "Big teeth",
       "maxHealth": 8,
       "defaultDamage": 2,
       "deckAmount": 4
     },
     {
       "title": "Mega Bat",
-      "description": "",
+      "description": "Large fangs",
       "maxHealth": 6,
       "defaultDamage": 4,
       "deckAmount": 4
