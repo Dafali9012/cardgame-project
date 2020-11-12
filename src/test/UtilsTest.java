@@ -12,17 +12,19 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UtilsTest {
     @Test
     public void getCardSettings() {
-        CardSettings cardSettings = Utils.getCardSettings();
+        CardSettings cardSettings = Utils.getCardSettings("res/cards");
         assertNotNull(cardSettings);
-        assertEquals(40,cardSettings.creatures.size());
-        assertEquals(20,cardSettings.spells.size());
+        assertNotEquals(0,cardSettings.creatures.size());
+        assertNotEquals(0,cardSettings.spells.size());
     }
 
     @Test
-    public void buildDeck() {
-        CardSettings cardSettings = Utils.getCardSettings();
-        List<Card> newDeck = Utils.buildDeck(cardSettings);
+    public void generateDeck() {
+        CardSettings cardSettings = Utils.getCardSettings("res/cards");
+        List<Card> botchedDeck = Utils.generateDeck(null);
+        assertNull(botchedDeck);
+        List<Card> newDeck = Utils.generateDeck(cardSettings);
         assertNotNull(newDeck);
-        assertEquals(60, newDeck.size());
+        assertTrue(newDeck.size() > cardSettings.creatures.size()+cardSettings.spells.size());
     }
 }
