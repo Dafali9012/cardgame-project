@@ -46,7 +46,8 @@ public class Player {
     }
 
     public boolean setDeck(List<Card> deck){
-        return this.deck.addAll(deck);
+        this.deck = deck;
+        return true;
     }
 
     public List<Card> getDeck(){

@@ -58,6 +58,7 @@ import static org.junit.jupiter.api.Assertions.*;
         @Test
         public void setDeckTest () {
             assertTrue(player.setDeck(cards), "Adding to deck failed");
+            assertFalse(player.setDeck(null), "Should not be null");
         }
 
         @Test
