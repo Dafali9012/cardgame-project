@@ -9,7 +9,8 @@ public class Game {
     }
 
     int turnCounter;
-    boolean gameOver = false;
+    boolean gameOver;
+    Player player1, player2;
 
 
     /**
