@@ -6,6 +6,7 @@ public class Player {
 
     private String name;
     private int health;
+    private int maxHealth;
     private int id;
 
     private List<Card> deck;
@@ -16,7 +17,7 @@ public class Player {
 
     public Player() {}
 
-    public Player(String name, int id, int health){}
+    public Player(String name, int id, int maxHealth){}
 
     public void modifyHealth(int health){
     }
@@ -36,6 +37,10 @@ public class Player {
         return health;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
     public int getId() {
         return id;
     }
@@ -46,6 +51,10 @@ public class Player {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public void setMaxHealth(int health) {
+        this.maxHealth = health;
     }
 
     public void setId(int id) {

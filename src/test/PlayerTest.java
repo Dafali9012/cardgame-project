@@ -27,9 +27,22 @@ public class PlayerTest {
         }
 
         Player player = new Player();
-        assertEquals(null, player.getName());
-        assertEquals(0, player.getId());
+        assertEquals("NoName", player.getName());
         assertEquals(0, player.getId());
         assertEquals(0, player.getHealth());
+        assertEquals(0, player.getMaxHealth());
+    }
+
+    @Test
+    public void modifyHealthTest() {
+        Player player = new Player("David", 5, 100);
+        player.modifyHealth(10);
+        assertEquals(100, player.getHealth());
+        player.modifyHealth(-14);
+        assertEquals(86, player.getHealth());
+        player.modifyHealth(8);
+        assertEquals(94, player.getHealth());
+        player.modifyHealth(-100);
+        assertEquals(0,player.getHealth());
     }
 }
