@@ -17,9 +17,22 @@ public class Player {
 
     public Player() {}
 
-    public Player(String name, int id, int maxHealth){}
+    public Player(String name, int id, int maxHealth){
+        this.name = name;
+        this.id = id;
+        this.maxHealth = maxHealth;
+        this.health = maxHealth;
+    }
 
-    public void modifyHealth(int health){
+    public void modifyHealth(int harm){
+        int recent = (this.health + harm);
+        if(recent > maxHealth){
+            this.health = this.maxHealth;
+        }
+        else if(recent < 0){
+            this.health = 0;
+        }
+        else this.health = recent;
     }
 
     public boolean moveCard(Card card, List<Card> listA, List<Card> listB){
