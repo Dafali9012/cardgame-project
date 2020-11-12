@@ -45,4 +45,10 @@ public class PlayerTest {
         player.modifyHealth(-100);
         assertEquals(0,player.getHealth());
     }
+
+    @Test
+    public void moveCard() {}
+
+    @Test
+    public void setDeck() {}
 }
