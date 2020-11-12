@@ -16,14 +16,9 @@ public class Player {
 
     public Player() {}
 
-    public Player(String name, int id, int health){
-        this.name = name;
-        this.id = id;
-        this.health = health;
-    }
+    public Player(String name, int id, int health){}
 
-    public int modifyHealth(int health){
-        return 0;
+    public void modifyHealth(int health){
     }
 
     public boolean moveCard(Card card, List<Card> listA, List<Card> listB){
