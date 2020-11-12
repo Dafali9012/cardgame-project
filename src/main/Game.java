@@ -1,6 +1,9 @@
 package main;
 
 public class Game {
+    /**
+     * Creates a new game with two players, "Players 1" and "Players 2"
+     */
     public Game() {
 
     }
@@ -8,31 +11,38 @@ public class Game {
     int turnCounter;
     boolean gameOver = false;
 
-    static public int reducePlayerHealth(Player player, int damage){
-        player.modifyHealth()
-        return PlayerHealth - damage;
+
+    /**
+     * Increments the turn counter.
+     * @return returns the new value.
+     */
+    private int incrementTurnCounter(){
+        return -1;
     }
 
-    public boolean checkIfGameOverIsTrue (int PlayerHealth) {
-        if(PlayerHealth < 1) {
-            this.gameOver = true;
-        }
-        return gameOver;
+    /**
+     * Get player that has the current turn.
+     * @return player1 or player2.
+     */
+    private Player getCurrentPlayersTurn(){
+        return null;
     }
 
-    public String printoutIfGameOver(boolean gameOver){
-        String Over =  "Game Over";
-        return Over;
+    /**
+     * Check if game is over.
+     * @return returns true if either player has 0 health.
+     */
+    public boolean isGameOver(){
+        return true;
+    }
+
+    /**
+     * Plays next turn.
+     * @return played turn count
+     */
+    public int runNextTurn() {
+        return incrementTurnCounter();
     }
 
 
-    /*
-      if(PlayerHealth < 1 || CreatureHealth < 1){
-            return gameOver = true;
-        } else{
-            System.out.println(turnCounter);
-            turnCounter++;
-            System.out.println(turnCounter);
-        }
-    */
 }
