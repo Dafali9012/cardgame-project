@@ -16,7 +16,12 @@ public class Player {
     private List<Card> graveyard = new ArrayList<>();
 
 
-    public Player() {}
+    public Player() {
+        this.name = "NoName";
+        this.id = 0;
+        this.health = 0;
+        this.maxHealth = 0;
+    }
 
     public Player(String name, int id, int maxHealth){
         this.name = name;
