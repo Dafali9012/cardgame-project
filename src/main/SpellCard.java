@@ -5,14 +5,14 @@ public class SpellCard extends Card {
 
     public SpellCard() {
         super();
-        this.damage = 1;
         this.heal = 1;
+        this.damage = 1;
     }
 
-    public SpellCard(String title, String description, int damage, int heal) {
+    public SpellCard(String title, String description, int heal, int damage) {
         super(title, description);
-        this.damage = damage;
         this.heal = heal;
+        this.damage = damage;
     }
 
     public int getDamage() {
