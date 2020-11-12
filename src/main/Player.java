@@ -6,6 +6,7 @@ public class Player {
 
     private String name;
     private int health;
+    private int maxHealth;
     private int id;
 
     private List<Card> deck;
@@ -16,14 +17,22 @@ public class Player {
 
     public Player() {}
 
-    public Player(String name, int id, int health){
+    public Player(String name, int id, int maxHealth){
         this.name = name;
         this.id = id;
-        this.health = health;
+        this.maxHealth = maxHealth;
+        this.health = maxHealth;
     }
 
-    public int modifyHealth(int health){
-        return 0;
+    public void modifyHealth(int harm){
+        int recent = (this.health + harm);
+        if(recent > maxHealth){
+            this.health = this.maxHealth;
+        }
+        else if(recent < 0){
+            this.health = 0;
+        }
+        else this.health = recent;
     }
 
     public boolean moveCard(Card card, List<Card> listA, List<Card> listB){
@@ -41,6 +50,10 @@ public class Player {
         return health;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
     public int getId() {
         return id;
     }
@@ -51,6 +64,10 @@ public class Player {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public void setMaxHealth(int health) {
+        this.maxHealth = health;
     }
 
     public void setId(int id) {
