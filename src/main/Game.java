@@ -8,8 +8,8 @@ public class Game {
 
     }
 
-    int turnCounter;
-    boolean gameOver;
+    int turnCounter = 1;
+    boolean gameOver = false;
     Player player1, player2;
 
 
@@ -18,7 +18,8 @@ public class Game {
      * @return returns the new value.
      */
     private int incrementTurnCounter(){
-        return -1;
+        turnCounter++;
+        return turnCounter;
     }
 
     /**
