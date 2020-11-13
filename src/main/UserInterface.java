@@ -1,11 +1,24 @@
 package main;
 
 public class UserInterface {
-    public void displayPlayersNameAndHp(){
 
+    private void displayTurnOptions(){
     }
 
-    public String formatPlayerNameAndHp(Player player){
+    public void displayPlayersNameAndHp(){
+    }
+
+    public void displayCreatureCard(){
+    }
+
+    public String dispensePlayerNameAndHp(Player player){
         return null;
     }
+
+
+    public String dispenseCreatureCard(CreatureCard card){
+        return null;
+    }
+
+
 }
