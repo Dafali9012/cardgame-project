@@ -4,20 +4,20 @@ import main.Card;
 import main.Player;
 import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import static main.Utils.generateDeck;
+import static main.Utils.getCardSettings;
 import static org.junit.jupiter.api.Assertions.*;
 
     class PlayerTest {
-        Card card = new Card("Hamster", "Harmless");
+        List<Card> deck;
         Player player;
-        ArrayList<Card> cards;
 
         @BeforeEach
         public void beforeTest(){
             player = new Player("David", 5, 100);
-            cards = new ArrayList<>();
-            cards.add(card);
+            deck = generateDeck(getCardSettings("res/cards"));
         }
 
         @Test
@@ -57,19 +57,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
         @Test
         public void setDeckTest () {
-            assertTrue(player.setDeck(cards), "Adding to deck failed");
-            assertFalse(player.setDeck(null), "Should not be null");
+            assertEquals(player.setDeck(deck), player.getDeck(), "Adding to deck failed");
+            assertFalse(player.getDeck().isEmpty(), "Should not be null");
         }
 
         @Test
-        public void moveCardTest () {
-            player = new Player();
-
-        }
+        public void moveCardTest () {}
 
         @Test
-        public void getDeckTest () {}
-
+        public void getDeckTest () {
+            player.setDeck(deck);
+            assertFalse(player.getDeck().isEmpty()); }
         @Test
         public void getNameTest() {
             assertEquals("Martin", "Martin");

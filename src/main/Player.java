@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Player {
 
-    private String name;
+    private final String name;
     private int health;
-    private int maxHealth;
-    private int id;
+    private final int maxHealth;
+    private final int id;
 
     private List<Card> deck = new ArrayList<>();
     private List<Card> hand = new ArrayList<>();
@@ -45,9 +45,8 @@ public class Player {
         return false;
     }
 
-    public boolean setDeck(List<Card> deck){
-        this.deck = deck;
-        return true;
+    public List<Card> setDeck(List<Card> deck){
+        return this.deck = deck;
     }
 
     public List<Card> getDeck(){
