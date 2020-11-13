@@ -1,6 +1,6 @@
 package main;
 
-public class Card {
+public abstract class Card {
     String title, description;
 
     public Card() {}
