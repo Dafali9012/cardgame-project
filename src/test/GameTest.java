@@ -5,9 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 public class GameTest {
 
     Game g;
@@ -22,14 +19,18 @@ public class GameTest {
     }
 
     @Test
+    public void testTurnCounterNotOverRealValue(){
+        Assert.assertEquals("Turn is expected to be incremented", g.runNextTurn(), g.runNextTurn() + 1);
+    }
+
+    @Test
     public void testTurnCounterNotUnderRealValue(){
-        Assert.assertEquals("Turn isn't expected to be equal or less than last turn",
+        Assert.assertEquals("Turn isn't expected to be less than the last turn",
                 g.runNextTurn(), g.runNextTurn() - 1);
     }
 
     @Test
-    public void testTurnCounterNotOverRealValue(){
-        Assert.assertEquals("Turn isn't expected to be equal or less than last turn",
-                g.runNextTurn(), g.runNextTurn() + 1);
-    }
+    public void testIfGameOverIsTrue(){
+        Assert.assertFalse("GameOver is true", true);
+     }
 }
