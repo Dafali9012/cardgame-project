@@ -23,7 +23,7 @@
     },
     {
       "title": "Slime",
-      "description": "",
+      "description": "Squishy",
       "maxHealth": 2,
       "defaultDamage": 1,
       "deckAmount": 12
@@ -44,35 +44,35 @@
     },
     {
       "title": "Kraken",
-      "description": "",
+      "description": "Release the Kraken!",
       "maxHealth": 12,
       "defaultDamage": 6,
       "deckAmount": 2
     },
     {
       "title": "Griffin",
-      "description": "",
+      "description": "Half lion half eagle",
       "maxHealth": 10,
       "defaultDamage": 4,
       "deckAmount": 4
     },
     {
       "title": "Giant Spider",
-      "description": "",
+      "description": "Eww",
       "maxHealth": 12,
       "defaultDamage": 5,
       "deckAmount": 2
     },
     {
       "title": "Ghoul",
-      "description": "",
+      "description": "大魔界村",
       "maxHealth": 6,
       "defaultDamage": 3,
       "deckAmount": 6
     },
     {
       "title": "Wraith",
-      "description": "",
+      "description": "Boo",
       "maxHealth": 8,
       "defaultDamage": 5,
       "deckAmount": 4

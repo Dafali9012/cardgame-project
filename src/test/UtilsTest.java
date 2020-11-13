@@ -21,10 +21,10 @@ public class UtilsTest {
     @Test
     public void generateDeck() {
         CardSettings cardSettings = Utils.getCardSettings("res/cards");
-        List<Card> botchedDeck = Utils.generateDeck(null);
-        assertNull(botchedDeck);
         List<Card> newDeck = Utils.generateDeck(cardSettings);
         assertNotNull(newDeck);
-        assertTrue(newDeck.size() > cardSettings.creatures.size()+cardSettings.spells.size());
+        assertTrue(newDeck.size() >= cardSettings.creatures.size()+cardSettings.spells.size());
+        newDeck = Utils.generateDeck(null);
+        assertNull(newDeck);
     }
 }

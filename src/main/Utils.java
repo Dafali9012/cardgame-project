@@ -10,6 +10,7 @@ import java.util.List;
 
 public abstract class Utils {
     public static CardSettings getCardSettings(String path) {
+        if(path.isBlank()) return null;
         try {
             Gson gson = new Gson();
             return gson.fromJson(new FileReader(new File(path)), CardSettings.class);
