@@ -1,21 +1,27 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
 
-    private String name;
+    private final String name;
     private int health;
-    private int maxHealth;
-    private int id;
+    private final int maxHealth;
+    private final int id;
 
-    private List<Card> deck;
-    private List<Card> hand;
-    private List<Card> play;
-    private List<Card> graveyard;
+    private List<Card> deck = new ArrayList<>();
+    private List<Card> hand = new ArrayList<>();
+    private List<Card> play = new ArrayList<>();
+    private List<Card> graveyard = new ArrayList<>();
 
 
-    public Player() {}
+    public Player() {
+        this.name = "NoName";
+        this.id = 0;
+        this.health = 0;
+        this.maxHealth = 0;
+    }
 
     public Player(String name, int id, int maxHealth){
         this.name = name;
@@ -38,8 +44,22 @@ public class Player {
     public boolean moveCard(Card card, List<Card> listA, List<Card> listB){
         return false;
     }
-    public boolean setDeck(List<Card> deck){
-        return false;
+
+    public List<Card> setDeck(List<Card> deck){
+        return this.deck = deck;
+    }
+
+    public List<Card> getDeck(){
+        return deck;
+    }
+    public List<Card> getCardHand(){
+        return hand;
+    }
+    public List<Card> getCardPlay(){
+        return play;
+    }
+    public List<Card> getGraveyard(){
+        return graveyard;
     }
 
     public String getName() {
@@ -58,19 +78,4 @@ public class Player {
         return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public void setMaxHealth(int health) {
-        this.maxHealth = health;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }
