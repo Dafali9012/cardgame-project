@@ -3,14 +3,13 @@ package test;
 import main.InputHandler;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class InputHandlerTest {
 
     InputHandlerTest(){
         constructorTest();
-        getIntFromUserTest();
+        getIntTest();
     }
 
     @Test
@@ -25,7 +24,7 @@ class InputHandlerTest {
 
     //simulate user input of value 1.
     @Test
-    void getIntFromUserTest() {
+    void getIntTest() {
         InputHandler input = new InputHandler();
         ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
         System.setIn(in);
