@@ -41,23 +41,44 @@ public class Player {
         else this.health = recent;
     }
 
-    public boolean moveCard(Card card, List<Card> listA, List<Card> listB){
-        return false;
+    public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
+        if (cardIndex<0) {
+            return false;
+        }
+        else if (cardIndex>from.size()) {
+            return false;
+        }
+        return to.add(from.remove(cardIndex));
     }
 
     public List<Card> setDeck(List<Card> deck){
         return this.deck = deck;
     }
 
+    public List<Card> setHand(List<Card> hand) {
+        return this.hand = hand;
+    }
+
+    public List<Card> setPlay(List<Card> play) {
+        return this.play = play;
+    }
+
+    public List<Card> setGraveyard(List<Card> graveyard) {
+        return this.graveyard = graveyard;
+    }
+
     public List<Card> getDeck(){
         return deck;
     }
-    public List<Card> getCardHand(){
+
+    public List<Card> getHand(){
         return hand;
     }
-    public List<Card> getCardPlay(){
+
+    public List<Card> getPlay(){
         return play;
     }
+
     public List<Card> getGraveyard(){
         return graveyard;
     }
