@@ -7,6 +7,9 @@ public class InputHandler {
     public InputHandler(){
 
     }
+    public String getText(){
+        return null;
+    }
     public int getInt(){
         Scanner userInput = new Scanner(System.in);
         boolean wentToCatch;

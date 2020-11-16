@@ -13,6 +13,14 @@ class InputHandlerTest {
         getIntWithPromptTest();
         getIntWithPromptAndMaxValueTest();
         getIntWithPromptAndMinValueAndMaxValueTest();
+        getTextTest();
+    }
+
+    @Test
+    void getTextTest() {
+        InputHandler input = new InputHandler();
+        String userString = input.getText();
+        assertNull(userString);
     }
 
     @Test
