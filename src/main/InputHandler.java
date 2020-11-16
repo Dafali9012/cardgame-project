@@ -1,15 +1,33 @@
 package main;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class InputHandler {
     public InputHandler(){
 
     }
+
     public String getText(){
-        return null;
+        Scanner userInput = new Scanner(System.in);
+        String userString = userInput.nextLine();
+        userInput.close();
+        return userString;
     }
+
+    public String getText(String prompt, List<String> validAnswers){
+        Scanner userInput = new Scanner(System.in);
+        String userString;
+        do {
+            System.out.println(prompt);
+            userString = userInput.nextLine().toLowerCase();
+        }
+        while (!validAnswers.contains(userString));
+        userInput.close();
+        return userString;
+    }
+
     public int getInt(){
         Scanner userInput = new Scanner(System.in);
         boolean wentToCatch;
