@@ -43,4 +43,8 @@ public class InputHandler {
         userInput.close();
         return userChoice;
     }
+
+    public int getInt(String prompt, int maxValue){
+        return 1;
+    }
 }
