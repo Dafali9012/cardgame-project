@@ -12,12 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
     class PlayerTest {
         List<Card> deck;
+        List<Card> to;
         Player player;
 
         @BeforeEach
         public void beforeTest(){
             player = new Player("David", 5, 100);
             deck = generateDeck(getCardSettings("res/cards"));
+            to = generateDeck(getCardSettings("res/cards"));
         }
 
         @Test
@@ -56,32 +58,60 @@ import static org.junit.jupiter.api.Assertions.*;
         }
 
         @Test
+        public void moveCardTest () {
+            assertTrue(player.moveCard(1, deck, to), "Moving card not successful");
+            assertFalse(player.moveCard(-1, deck, to), "Index cannot be negative");
+            assertFalse(player.moveCard(100, deck, to), "Index cannot be longer than the list itself");
+        }
+
+        @Test
         public void setDeckTest () {
             assertEquals(player.setDeck(deck), player.getDeck(), "Adding to deck failed");
             assertFalse(player.getDeck().isEmpty(), "Should not be null");
         }
 
         @Test
-        public void moveCardTest () {}
+        public void setHandTest () {
+            assertEquals(player.setHand(deck), player.getHand(), "Adding to deck failed");
+            assertFalse(player.getHand().isEmpty(), "Should not be null");
+        }
+
+        @Test
+        public void setPlayTest () {
+            assertEquals(player.setPlay(deck), player.getPlay(), "Adding to deck failed");
+            assertFalse(player.getPlay().isEmpty(), "Should not be null");
+        }
+
+        @Test
+        public void setGraveyardTest () {
+            assertEquals(player.setGraveyard(deck), player.getGraveyard(), "Adding to deck failed");
+            assertFalse(player.getGraveyard().isEmpty(), "Should not be null");
+        }
 
         @Test
         public void getDeckTest () {
             player.setDeck(deck);
-            assertFalse(player.getDeck().isEmpty()); }
-        @Test
-        public void getNameTest() {
-            assertEquals("Martin", "Martin");
+            assertFalse(player.getDeck().isEmpty());
+            assertEquals(player.getDeck(), deck);
         }
+
         @Test
-        public void getIdTest() {
-            assertEquals(23, 23);
+        public void getHandTest() {
+            player.setHand(deck);
+            assertFalse(player.getHand().isEmpty());
+            assertEquals(player.getHand(), deck);
         }
+
         @Test
-        public void getHealthTest() {
-            assertEquals(50, 50);
+        public void getPlayTest() {
+            player.setPlay(deck);
+            assertFalse(player.getPlay().isEmpty());
+            assertEquals(player.getPlay(), deck);
         }
+
         @Test
-        public void getMaxHealthTest() {
-            assertEquals(70, 70);
+        public void getGraveyardTest() {
+            player.setGraveyard(deck);
+            assertEquals(player.getGraveyard(), deck);
         }
     }
