@@ -62,4 +62,22 @@ public class InputHandler {
         userInput.close();
         return userChoice;
     }
+    public int getInt(String prompt, int minValue, int maxValue){
+        Scanner userInput = new Scanner(System.in);
+        boolean wentToCatch;
+        int userChoice = 0;
+        do {
+            System.out.println(prompt + ", min value: " + minValue +", max value: " + maxValue);
+            try {
+                wentToCatch = false;
+                userChoice = userInput.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input, try again: ");
+                userInput.next();
+                wentToCatch = true;
+            }
+        } while (wentToCatch || userChoice > maxValue || userChoice < minValue);
+        userInput.close();
+        return userChoice;
+    }
 }

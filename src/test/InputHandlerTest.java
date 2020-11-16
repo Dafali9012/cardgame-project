@@ -12,6 +12,7 @@ class InputHandlerTest {
         getIntTest();
         getIntWithPromptTest();
         getIntWithPromptAndMaxValueTest();
+        getIntWithPromptAndMinValueAndMaxValueTest();
     }
 
     @Test
@@ -49,5 +50,14 @@ class InputHandlerTest {
         ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
         System.setIn(in);
         assertEquals(1, input.getInt("Test with prompt string", 3));
+    }
+
+    //simulate user input of value 1 with string prompt, min value and max value as parameter.
+    @Test
+    void getIntWithPromptAndMinValueAndMaxValueTest() {
+        InputHandler input = new InputHandler();
+        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
+        System.setIn(in);
+        assertEquals(1, input.getInt("Test with prompt string",0,3));
     }
 }
