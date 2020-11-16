@@ -67,6 +67,7 @@ class InputHandlerTest {
         assertEquals(1, input.getInt("Test with prompt string",0,3));
     }
 
+    //simulate user input of value "user written text".
     @Test
     void getTextTest() {
         InputHandler input = new InputHandler();
@@ -75,6 +76,7 @@ class InputHandlerTest {
         assertEquals("user written text", input.getText());
     }
 
+    //simulate user input of value "yes" with a String prompt and an Arraylsit of valid answers.
     @Test
     void getTextWithPromptAndValidAnswersTest() {
         InputHandler input = new InputHandler();
