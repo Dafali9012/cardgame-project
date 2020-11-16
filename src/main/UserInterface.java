@@ -1,6 +1,5 @@
 package main;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 public class UserInterface {
@@ -19,7 +18,7 @@ public class UserInterface {
     public void displayHand(){
     }
 
-    public String dispenseHand(List<CreatureCard> cards ){
+    public String dispenseHand(List<Card> cards ){
         return null;
     }
 
@@ -27,22 +26,51 @@ public class UserInterface {
         return null;
     }
 
-    public String dispenseCreatureCard(CreatureCard card){
-        return null;
+    public String dispenseCreatureCard(Card card){
+        String dots = "..." ;
+        String cardFormat ="";
+
+        switch (card.getClass().getSimpleName()){
+
+            case "CreatureCard":
+                dots = dots + getDots(card.getDescription().length());
+                cardFormat =  String.format("%s \n. %s \n. %s \n. HP :%s \n. ATk: %s\n %s",
+                        dots,
+                        card.getTitle(),
+                        card.getDescription(),
+                        ((CreatureCard) card).getHealth(),
+                        ((CreatureCard) card).getDamage(),
+                        dots
+
+                );
+            break;
+
+            case "SpellCard":
+               dots = dots + getDots(card.getDescription().length());
+                cardFormat =  String.format("%s \n. %s \n. %s \n. HP: %s \n. ATK: %s \n %s",
+                        dots,
+                        card.getTitle(),
+                        card.getDescription(),
+                        ((SpellCard) card).getHeal(),
+                        ((SpellCard) card).getDamage(),
+                        dots
+
+                );
+            break;
+        }
+
+        return cardFormat;
+    }
+
+    private String getDots(int size){
+        StringBuilder dots  = new StringBuilder();
+
+        for (int i = 0; i < size; i++){
+            dots.append(".");
+        }
+
+        return dots.toString();
     }
 
 
-}
-
-class Test{
-    public static void main(String[] args) {
-        Player player1 = new Player("Jon",1,100);
-        Player player2 = new Player("Tim",2,100);
-        Player[] players = new Player[2];
-        players[0] = player1;
-        players[1] = player2;
-
-        System.out.println(players[0].getName());
-
-    }
 }
