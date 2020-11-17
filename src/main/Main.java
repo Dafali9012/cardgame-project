@@ -4,7 +4,15 @@ import java.util.List;
 import static main.Utils.*;
 
 public class Main {
+    public Main() {
+        cardUsage();
+    }
+
     public static void main(String[] args) {
+        new Main();
+    }
+
+    private void cardUsage() {
         List<Card> deck = generateDeck(getCardSettings("res/cards"));
         int cardCount = 1;
         for(Card card : deck) {
