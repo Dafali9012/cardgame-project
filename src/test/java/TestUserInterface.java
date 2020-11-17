@@ -1,9 +1,4 @@
-package test;
 
-import main.Card;
-import main.CreatureCard;
-import main.Player;
-import main.UserInterface;
 
 import org.junit.jupiter.api.*;
 
