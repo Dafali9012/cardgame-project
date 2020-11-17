@@ -51,8 +51,7 @@ public class UserInterface {
                         dots,
                         card.getTitle(),
                         card.getDescription(),
-                        ((SpellCard) card).getHeal(),
-                        ((SpellCard) card).getDamage(),
+                        ((SpellCard) card).getHealthModifier(),
                         dots
 
                 );

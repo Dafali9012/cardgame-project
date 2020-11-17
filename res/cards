@@ -80,39 +80,39 @@
   ],
   "spells": [
     {
-      "title": "Heal Creature",
-      "description": "Heal target creature 4 health points",
-      "heal": 4,
-      "damage": 0,
-      "deckAmount": 8
+      "title": "Heal",
+      "description": "Heal target 4 health points",
+      "healthModifier": 4,
+      "deckAmount": 8,
+      "instructions": ["player-modhp-friendly"]
     },
     {
       "title": "Fireball",
       "description": "Damage target 4 health points",
-      "heal": 0,
-      "damage": 4,
-      "deckAmount": 8
+      "healthModifier": -4,
+      "deckAmount": 8,
+      "instructions": []
     },
     {
       "title": "Mega Heal",
       "description": "Heal all friendly creatures in play 2 health points",
-      "heal": 2,
-      "damage": 0,
-      "deckAmount": 4
+      "healthModifier": 4,
+      "deckAmount": 4,
+      "instructions": []
     },
     {
       "title": "Toxic vapors",
       "description": "Damage all hostile creatures in play 2 health points",
-      "heal": 0,
-      "damage": 2,
-      "deckAmount": 4
+      "healthModifier": -2,
+      "deckAmount": 4,
+      "instructions": []
     },
     {
       "title": "Rise again",
       "description": "Bring back a creature card from the graveyard into your hand",
-      "heal": 100,
-      "damage": 0,
-      "deckAmount": 2
+      "healthModifier": 100,
+      "deckAmount": 2,
+      "instructions": []
     }
   ]
 }

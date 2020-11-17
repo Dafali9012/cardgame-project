@@ -1,6 +1,5 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.List;
 import static main.Utils.*;
 
@@ -16,7 +15,6 @@ public class Main {
 
     private void cardUsage() {
         List<Card> deck = generateDeck(getCardSettings("res/cards"));
-        List<Card> cards = new ArrayList<>();
 
         int cardCount = 1;
         for(Card card : deck) {
@@ -25,16 +23,33 @@ public class Main {
             switch (card.getClass().getSimpleName()) {
                 case "CreatureCard" -> {
                     CreatureCard c = (CreatureCard) card;
-                    cards.add(c);
                     System.out.println((cardCount<10?"   ":"    ")+"HP: "+c.getHealth()+" ATK: "+c.getDamage());
                 }
                 case "SpellCard" -> {
                     SpellCard c = (SpellCard) card;
-                    cards.add(c);
-                    System.out.println((cardCount<10?"   ":"    ")+"HEAL: "+c.getHeal()+" DAMAGE: "+c.getDamage());
+                    System.out.println((cardCount<10?"   ":"    ")+"HEALTHMODIFIER: "+c.getHealthModifier());
                 }
             }
             cardCount++;
+        }
+    }
+
+    private void playSpell(SpellCard c) {
+        for(String m : c.getMethods()) {
+            String[] instr = m.split("-");
+
+            Player targetPlayer = null;
+
+            if(instr[0].equals("player")) {}// targetPlayer = player
+            else if(instr[0].equals("opponent")) {} // targetPlayer = opponent
+
+            if(instr[2].equals("modifyhealth")) {
+                // targetPlayer.getDeck().get( input.number ).modifyHealth(c.getHealthModifier)
+            }
+
+            if(instr[2].equals("movecard")) {
+                //
+            }
         }
     }
 }

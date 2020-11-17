@@ -30,7 +30,7 @@ public abstract class Utils {
         }
         for(SpellTemplate template : cardSettings.spells) {
             for(int i = 0; i < template.getDeckAmount();i++) {
-                result.add(new SpellCard(template.getTitle(), template.getDescription(), template.getHeal(), template.getDamage()));
+                result.add(new SpellCard(template.getTitle(), template.getDescription(), template.getHealthModifier(), template.getMethods()));
             }
         }
         Collections.shuffle(result);

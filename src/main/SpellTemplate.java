@@ -1,11 +1,11 @@
 package main;
 
 public class SpellTemplate {
-    public String title;
-    public String description;
-    public int damage;
-    public int heal;
-    public int deckAmount;
+    private String title;
+    private String description;
+    private int healthModifier;
+    private String[] methods;
+    private int deckAmount;
 
     public String getTitle() {
         return title;
@@ -15,15 +15,15 @@ public class SpellTemplate {
         return description;
     }
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public int getHeal() {
-        return heal;
-    }
-
     public int getDeckAmount() {
         return deckAmount;
+    }
+
+    public int getHealthModifier() {
+        return healthModifier;
+    }
+
+    public String[] getMethods() {
+        return methods;
     }
 }
