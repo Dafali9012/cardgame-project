@@ -1,6 +1,6 @@
-package main;
 
-import com.google.gson.Gson;
+
+import com.google.gson.*;
 
 import java.io.File;
 import java.io.FileReader;

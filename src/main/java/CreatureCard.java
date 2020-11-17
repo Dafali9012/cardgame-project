@@ -1,5 +1,3 @@
-package main;
-
 public class CreatureCard extends Card {
     private final int maxHealth;
     private int health;

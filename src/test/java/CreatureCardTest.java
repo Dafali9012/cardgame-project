@@ -1,6 +1,5 @@
-package test;
 
-import main.CreatureCard;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

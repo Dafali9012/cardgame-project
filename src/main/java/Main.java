@@ -1,11 +1,9 @@
-package main;
-
 import java.util.List;
-import static main.Utils.*;
+
 
 public class Main {
     public static void main(String[] args) {
-        List<Card> deck = generateDeck(getCardSettings("res/cards"));
+        List<Card> deck = Utils.generateDeck(Utils.getCardSettings("res/cards"));
         int cardCount = 1;
         for(Card card : deck) {
             System.out.println(cardCount+". "+card.getTitle());
