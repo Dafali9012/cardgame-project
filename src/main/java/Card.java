@@ -1,5 +1,3 @@
-package main;
-
 public abstract class Card {
     private String title, description;
 

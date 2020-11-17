@@ -1,8 +1,3 @@
-package test;
-
-import main.Card;
-import main.CardSettings;
-import main.Utils;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
