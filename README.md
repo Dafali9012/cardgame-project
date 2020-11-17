@@ -1,4 +1,4 @@
-# cardgame-project
+# cardgame-project [![Build Status](https://travis-ci.com/Dafali9012/cardgame-project.svg?branch=main)](https://travis-ci.com/Dafali9012/cardgame-project)
 
 Project by: 
 Anton(antonohlin) 

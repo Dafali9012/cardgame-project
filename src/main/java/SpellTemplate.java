@@ -1,5 +1,3 @@
-package main;
-
 public class SpellTemplate {
     private String title;
     private String description;
