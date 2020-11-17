@@ -1,5 +1,3 @@
-package main;
-
 public class SpellCard extends Card {
     int damage, heal;
 

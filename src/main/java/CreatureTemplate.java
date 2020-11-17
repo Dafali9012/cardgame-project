@@ -1,5 +1,3 @@
-package main;
-
 public class CreatureTemplate {
     private String title;
     private String description;

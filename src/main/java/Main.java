@@ -1,13 +1,11 @@
-package main;
-
 import java.util.ArrayList;
 import java.util.List;
-import static main.Utils.*;
+
 
 public class Main {
     public static void main(String[] args) {
         UserInterface userInterface  = new UserInterface();
-        List<Card> deck = generateDeck(getCardSettings("res/cards"));
+        List<Card> deck = Utils.generateDeck(Utils.getCardSettings("res/cards"));
         List<Card> cards = new ArrayList<>();
 
         int cardCount = 1;

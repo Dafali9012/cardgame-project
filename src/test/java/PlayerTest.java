@@ -1,16 +1,11 @@
-package test;
-
-import main.Card;
-import main.Player;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static main.Utils.generateDeck;
-import static main.Utils.getCardSettings;
 import static org.junit.jupiter.api.Assertions.*;
 
-    class PlayerTest {
+class PlayerTest {
         List<Card> deck;
         List<Card> to;
         Player player;
@@ -18,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
         @BeforeEach
         public void beforeTest(){
             player = new Player("David", 5, 100);
-            deck = generateDeck(getCardSettings("res/cards"));
-            to = generateDeck(getCardSettings("res/cards"));
+            deck = Utils.generateDeck(Utils.getCardSettings("res/cards"));
+            to = Utils.generateDeck(Utils.getCardSettings("res/cards"));
         }
 
         @Test
