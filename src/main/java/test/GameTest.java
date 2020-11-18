@@ -1,9 +1,9 @@
-package test;
-
 import main.Game;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.fail;
 
 public class GameTest {
 
@@ -31,6 +31,7 @@ public class GameTest {
 
     @Test
     public void testIfGameOverIsTrue(){
-        Assert.assertFalse("GameOver is true", true);
+        //Condition = true
+        fail("Game over is True");
      }
 }

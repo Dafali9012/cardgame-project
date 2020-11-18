@@ -12,7 +12,6 @@ public class Game {
     boolean gameOver = false;
     Player player1, player2;
 
-
     /**
      * Increments the turn counter.
      * @return returns the new value.
@@ -26,8 +25,14 @@ public class Game {
      * Get player that has the current turn.
      * @return player1 or player2.
      */
-    private Player getCurrentPlayersTurn(){
-        return null;
+    private Player CurrentPlayerTurn(){
+        if(turnCounter%2 == 0){
+            System.out.println("It's your turn");
+            return player1;
+        } else{
+            System.out.println("It's The enemies turn");
+            return player2;
+        }
     }
 
     /**
@@ -35,7 +40,13 @@ public class Game {
      * @return returns true if either player has 0 health.
      */
     public boolean isGameOver(){
-        return true;
+        if(this.Player.getHealth() < 1) {
+            System.out.println("Game is over");
+            return true;
+        } else {
+            runNextTurn();
+            return false;
+        }
     }
 
     /**
