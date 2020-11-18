@@ -1,9 +1,0 @@
-language: java
-jdk: openjdk14
-
-script: mvn clean install
-
-jobs:
-  include:
-    - stage: Test
-      script: mvn clean test

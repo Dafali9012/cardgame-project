@@ -1,0 +1,118 @@
+{
+  "creatures": [
+    {
+      "title": "Zombie",
+      "description": "Braaaiiinnsss",
+      "maxHealth": 4,
+      "defaultDamage": 2,
+      "deckAmount": 8
+    },
+    {
+      "title": "Werewolf",
+      "description": "Woof woof",
+      "maxHealth": 8,
+      "defaultDamage": 3,
+      "deckAmount": 4
+    },
+    {
+      "title": "Vampire",
+      "description": "Restores 1 health point with every attack",
+      "maxHealth": 6,
+      "defaultDamage": 4,
+      "deckAmount": 4
+    },
+    {
+      "title": "Slime",
+      "description": "Squishy",
+      "maxHealth": 2,
+      "defaultDamage": 1,
+      "deckAmount": 12
+    },
+    {
+      "title": "King Rat",
+      "description": "Big teeth",
+      "maxHealth": 8,
+      "defaultDamage": 2,
+      "deckAmount": 4
+    },
+    {
+      "title": "Mega Bat",
+      "description": "Large fangs",
+      "maxHealth": 6,
+      "defaultDamage": 4,
+      "deckAmount": 4
+    },
+    {
+      "title": "Kraken",
+      "description": "Release the Kraken!",
+      "maxHealth": 12,
+      "defaultDamage": 6,
+      "deckAmount": 2
+    },
+    {
+      "title": "Griffin",
+      "description": "Half lion half eagle",
+      "maxHealth": 10,
+      "defaultDamage": 4,
+      "deckAmount": 4
+    },
+    {
+      "title": "Giant Spider",
+      "description": "Eww",
+      "maxHealth": 12,
+      "defaultDamage": 5,
+      "deckAmount": 2
+    },
+    {
+      "title": "Ghoul",
+      "description": "大魔界村",
+      "maxHealth": 6,
+      "defaultDamage": 3,
+      "deckAmount": 6
+    },
+    {
+      "title": "Wraith",
+      "description": "Boo",
+      "maxHealth": 8,
+      "defaultDamage": 5,
+      "deckAmount": 4
+    }
+  ],
+  "spells": [
+    {
+      "title": "Heal Creature",
+      "description": "Heal target creature 4 health points",
+      "heal": 4,
+      "damage": 0,
+      "deckAmount": 8
+    },
+    {
+      "title": "Fireball",
+      "description": "Damage target 4 health points",
+      "heal": 0,
+      "damage": 4,
+      "deckAmount": 8
+    },
+    {
+      "title": "Mega Heal",
+      "description": "Heal all friendly creatures in play 2 health points",
+      "heal": 2,
+      "damage": 0,
+      "deckAmount": 4
+    },
+    {
+      "title": "Toxic vapors",
+      "description": "Damage all hostile creatures in play 2 health points",
+      "heal": 0,
+      "damage": 2,
+      "deckAmount": 4
+    },
+    {
+      "title": "Rise again",
+      "description": "Bring back a creature card from the graveyard into your hand",
+      "heal": 100,
+      "damage": 0,
+      "deckAmount": 2
+    }
+  ]
+}

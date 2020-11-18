@@ -3,6 +3,7 @@ package test;
 import main.CreatureCard;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CreatureCardTest {
@@ -30,6 +31,12 @@ public class CreatureCardTest {
         assertEquals(6, creatureCard.health);
         assertEquals(2, creatureCard.defaultDamage);
         assertEquals(2, creatureCard.damage);
+        assertEquals("Zombie", creatureCard.getTitle());
+        assertEquals("Yo it's a Zombie", creatureCard.getDescription());
+        assertEquals(6, creatureCard.getMaxHealth());
+        assertEquals(6, creatureCard.getHealth());
+        assertEquals(2, creatureCard.getDefaultDamage());
+        assertEquals(2, creatureCard.getDamage());
     }
 
     @Test
@@ -44,6 +51,13 @@ public class CreatureCardTest {
         assertEquals(4, creatureCard.health);
         creatureCard.modifyHealth(-100);
         assertEquals(0, creatureCard.health);
+        assertEquals(6, creatureCard.getHealth());
+        creatureCard.modifyHealth(-4);
+        assertEquals(2, creatureCard.getHealth());
+        creatureCard.modifyHealth(2);
+        assertEquals(4, creatureCard.getHealth());
+        creatureCard.modifyHealth(-100);
+        assertEquals(0, creatureCard.getHealth());
     }
 
     @Test
@@ -58,5 +72,12 @@ public class CreatureCardTest {
         assertEquals(6, creature.damage);
         creature.modifyDamage(-100);
         assertEquals(0, creature.damage);
+        assertEquals(8, creature.getDamage());
+        creature.modifyDamage(-4);
+        assertEquals(4, creature.getDamage());
+        creature.modifyDamage(2);
+        assertEquals(6, creature.getDamage());
+        creature.modifyDamage(-100);
+        assertEquals(0, creature.getDamage());
     }
 }

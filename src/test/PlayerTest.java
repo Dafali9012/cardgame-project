@@ -8,6 +8,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
         List<Card> deck;
         List<Card> to;
+package test;
+
+import main.Card;
+import main.Player;
+import org.junit.jupiter.api.*;
+
+import java.util.List;
+
+import static main.Utils.generateDeck;
+import static main.Utils.getCardSettings;
+import static org.junit.jupiter.api.Assertions.*;
+
+    class PlayerTest {
+        List<Card> deck;
         Player player;
 
         @BeforeEach
@@ -15,6 +29,7 @@ class PlayerTest {
             player = new Player("David", 5, 100);
             deck = Cards.generateDeck(Cards.getCardTemplates("res/card-templates"));
             to = Cards.generateDeck(Cards.getCardTemplates("res/card-templates"));
+            deck = generateDeck(getCardSettings("res/cards"));
         }
 
         @Test
@@ -82,6 +97,7 @@ class PlayerTest {
             assertEquals(player.setGraveyard(deck), player.getGraveyard(), "Adding to deck failed");
             assertFalse(player.getGraveyard().isEmpty(), "Should not be null");
         }
+        public void moveCardTest () {}
 
         @Test
         public void getDeckTest () {
@@ -108,5 +124,21 @@ class PlayerTest {
         public void getGraveyardTest() {
             player.setGraveyard(deck);
             assertEquals(player.getGraveyard(), deck);
+            assertFalse(player.getDeck().isEmpty()); }
+        @Test
+        public void getNameTest() {
+            assertEquals("Martin", "Martin");
+        }
+        @Test
+        public void getIdTest() {
+            assertEquals(23, 23);
+        }
+        @Test
+        public void getHealthTest() {
+            assertEquals(50, 50);
+        }
+        @Test
+        public void getMaxHealthTest() {
+            assertEquals(70, 70);
         }
     }
