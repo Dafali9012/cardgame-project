@@ -1,8 +1,5 @@
 public class CreatureCard extends Card {
-    private final int maxHealth;
-    private int health;
-    private final int defaultDamage;
-    private int damage;
+    public int maxHealth, health, defaultDamage, damage;
 
     public CreatureCard() {
         super();
@@ -12,12 +9,12 @@ public class CreatureCard extends Card {
         this.damage = 1;
     }
 
-    public CreatureCard(String title, String description, int maxHealth, int defaultDamage) {
+    public CreatureCard(String title, String description, int health, int damage) {
         super(title, description);
-        this.maxHealth = maxHealth;
-        this.health = maxHealth;
-        this.defaultDamage = defaultDamage;
-        this.damage = defaultDamage;
+        this.maxHealth = health;
+        this.health = health;
+        this.defaultDamage = damage;
+        this.damage = damage;
     }
 
     public void modifyHealth(int amount) {
@@ -29,21 +26,5 @@ public class CreatureCard extends Card {
     public void modifyDamage(int amount) {
         int result = this.damage + amount;
         this.damage = Math.max(result, 0);
-    }
-
-    public int getMaxHealth() {
-        return maxHealth;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public int getDefaultDamage() {
-        return defaultDamage;
-    }
-
-    public int getDamage() {
-        return damage;
     }
 }

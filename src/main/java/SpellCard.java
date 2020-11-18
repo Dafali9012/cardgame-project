@@ -1,24 +1,15 @@
 public class SpellCard extends Card {
-    int healthModifier;
-    String[] methods;
+    public int health, damage;
 
     public SpellCard() {
         super();
-        this.healthModifier = 1;
-        this.methods = new String[]{"player-play-modifyhealth-all"};
+        this.health = 1;
+        this.damage = 1;
     }
 
-    public SpellCard(String title, String description, int healthModifier, String[] methods) {
+    public SpellCard(String title, String description, int health, int damage) {
         super(title, description);
-        this.healthModifier = healthModifier;
-        this.methods = methods;
-    }
-
-    public int getHealthModifier() {
-        return healthModifier;
-    }
-
-    public String[] getMethods() {
-        return methods;
+        this.health = health;
+        this.damage = damage;
     }
 }

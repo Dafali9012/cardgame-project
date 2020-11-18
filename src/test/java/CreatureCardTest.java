@@ -21,12 +21,12 @@ public class CreatureCardTest {
             fail();
         }
 
-        assertEquals("Zombie", creatureCard.getTitle());
-        assertEquals("Yo it's a Zombie", creatureCard.getDescription());
-        assertEquals(6, creatureCard.getMaxHealth());
-        assertEquals(6, creatureCard.getHealth());
-        assertEquals(2, creatureCard.getDefaultDamage());
-        assertEquals(2, creatureCard.getDamage());
+        assertEquals("Zombie", creatureCard.title);
+        assertEquals("Yo it's a Zombie", creatureCard.description);
+        assertEquals(6, creatureCard.maxHealth);
+        assertEquals(6, creatureCard.health);
+        assertEquals(2, creatureCard.defaultDamage);
+        assertEquals(2, creatureCard.damage);
     }
 
     @Test
@@ -34,13 +34,13 @@ public class CreatureCardTest {
         CreatureCard creatureCard = new CreatureCard("Zombie", "Yo it's a Zombie", 6, 2);
 
         creatureCard.modifyHealth(6);
-        assertEquals(6, creatureCard.getHealth());
+        assertEquals(6, creatureCard.health);
         creatureCard.modifyHealth(-4);
-        assertEquals(2, creatureCard.getHealth());
+        assertEquals(2, creatureCard.health);
         creatureCard.modifyHealth(2);
-        assertEquals(4, creatureCard.getHealth());
+        assertEquals(4, creatureCard.health);
         creatureCard.modifyHealth(-100);
-        assertEquals(0, creatureCard.getHealth());
+        assertEquals(0, creatureCard.health);
     }
 
     @Test
@@ -48,12 +48,12 @@ public class CreatureCardTest {
         CreatureCard creature = new CreatureCard("Zombie", "Yo it's a Zombie", 6, 2);
 
         creature.modifyDamage(6);
-        assertEquals(8, creature.getDamage());
+        assertEquals(8, creature.damage);
         creature.modifyDamage(-4);
-        assertEquals(4, creature.getDamage());
+        assertEquals(4, creature.damage);
         creature.modifyDamage(2);
-        assertEquals(6, creature.getDamage());
+        assertEquals(6, creature.damage);
         creature.modifyDamage(-100);
-        assertEquals(0, creature.getDamage());
+        assertEquals(0, creature.damage);
     }
 }
