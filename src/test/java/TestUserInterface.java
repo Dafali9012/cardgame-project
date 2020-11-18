@@ -1,3 +1,4 @@
+/*
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -26,8 +27,9 @@ public class TestUserInterface {
     @Test
     public  void testDispenseHand(){
         System.out.println("======TEST ONE dispenseHand");
-        //Assertions.assertNotNull(userInterface.dispenseHand(cards));
+        //Assertions.assertNotNull(userInterface.dispenseHand(card-templates));
 
     }
 
 }
+*/

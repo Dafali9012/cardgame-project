@@ -1,0 +1,146 @@
+[
+  {
+    "type": "creature",
+    "title": "Zombie",
+    "description": "Braaaiiinnsss",
+    "health": 4,
+    "damage": 2,
+    "deckAmount": 8,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Werewolf",
+    "description": "Woof woof",
+    "health": 8,
+    "damage": 3,
+    "deckAmount": 4,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Vampire",
+    "description": "Restores 1 health point with every attack",
+    "health": 6,
+    "damage": 4,
+    "deckAmount": 4,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Slime",
+    "description": "Squishy",
+    "health": 2,
+    "damage": 1,
+    "deckAmount": 12,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "King Rat",
+    "description": "Big teeth",
+    "health": 8,
+    "damage": 2,
+    "deckAmount": 4,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Mega Bat",
+    "description": "Large fangs",
+    "health": 6,
+    "damage": 4,
+    "deckAmount": 4,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Kraken",
+    "description": "Release the Kraken!",
+    "health": 12,
+    "damage": 6,
+    "deckAmount": 2,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Griffin",
+    "description": "Half lion half eagle",
+    "health": 10,
+    "damage": 4,
+    "deckAmount": 4,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Giant Spider",
+    "description": "Eww",
+    "health": 12,
+    "damage": 5,
+    "deckAmount": 2,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Ghoul",
+    "description": "大魔界村",
+    "health": 6,
+    "damage": 3,
+    "deckAmount": 6,
+    "effect": []
+  },
+  {
+    "type": "creature",
+    "title": "Wraith",
+    "description": "Boo",
+    "health": 8,
+    "damage": 5,
+    "deckAmount": 4,
+    "effect": []
+  },
+  {
+    "type": "spell",
+    "title": "Heal",
+    "description": "Heal target 4 health points",
+    "health": 4,
+    "damage": 0,
+    "deckAmount": 8,
+    "effect": ["player-modhp-friendly"]
+  },
+  {
+    "type": "spell",
+    "title": "Fireball",
+    "description": "Damage target 4 health points",
+    "health": 0,
+    "damage": 4,
+    "deckAmount": 8,
+    "effect": []
+  },
+  {
+    "type": "spell",
+    "title": "Mega Heal",
+    "description": "Heal all friendly creatures in play 2 health points",
+    "health": 2,
+    "damage": 0,
+    "deckAmount": 4,
+    "effect": []
+  },
+  {
+    "type": "spell",
+    "title": "Toxic vapors",
+    "description": "Damage all hostile creatures in play 2 health points",
+    "health": 0,
+    "damage": 2,
+    "deckAmount": 4,
+    "effect": []
+  },
+  {
+    "type": "spell",
+    "title": "Rise again",
+    "description": "Bring back a creature card from the graveyard into your hand",
+    "health": 100,
+    "damage": 0,
+    "deckAmount": 2,
+    "effect": []
+  }
+]

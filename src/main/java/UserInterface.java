@@ -1,3 +1,4 @@
+/*
 import java.util.List;
 
 public class UserInterface {
@@ -49,8 +50,7 @@ public class UserInterface {
                         dots,
                         card.getTitle(),
                         card.getDescription(),
-                        ((SpellCard) card).getHeal(),
-                        ((SpellCard) card).getDamage(),
+                        ((SpellCard) card).getHealthModifier(),
                         dots
 
                 );
@@ -72,3 +72,4 @@ public class UserInterface {
 
 
 }
+*/

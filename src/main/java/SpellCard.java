@@ -1,23 +1,15 @@
 public class SpellCard extends Card {
-    int damage, heal;
+    public int health, damage;
 
     public SpellCard() {
         super();
-        this.heal = 1;
+        this.health = 1;
         this.damage = 1;
     }
 
-    public SpellCard(String title, String description, int heal, int damage) {
+    public SpellCard(String title, String description, int health, int damage) {
         super(title, description);
-        this.heal = heal;
+        this.health = health;
         this.damage = damage;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public int getHeal() {
-        return heal;
     }
 }
