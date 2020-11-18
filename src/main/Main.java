@@ -22,7 +22,5 @@ public class Main {
             }
             cardCount++;
         }
-        Game g = new Game();
-        System.out.println(g.turnCounter);
     }
 }

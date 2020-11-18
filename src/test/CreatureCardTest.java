@@ -1,10 +1,8 @@
-<<<<<<< HEAD:src/test/java/CreatureCardTest.java
-=======
+package test;
+
 import main.CreatureCard;
->>>>>>> Kod skriven till metoderna, dock inte helt klart med isGameOver metoden:src/main/java/test/CreatureCardTest.java
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CreatureCardTest {
