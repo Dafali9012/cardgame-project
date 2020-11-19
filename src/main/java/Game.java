@@ -40,6 +40,15 @@ public class Game {
     private void attack() {}
 
     private void playCard() {}
+    public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
+        if (cardIndex<0) {
+            return false;
+        }
+        else if (cardIndex>from.size()) {
+            return false;
+        }
+        return to.add(from.remove(cardIndex));
+    }
 
     private void updatePlayers() {
         for(Player player : players) {
