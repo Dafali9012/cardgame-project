@@ -16,7 +16,7 @@ public class CreatureCardTest {
     public void parameterConstructor() {
         CreatureCard creatureCard = null;
         try {
-            creatureCard = new CreatureCard("Zombie", "Yo it's a Zombie", 6, 2);
+            creatureCard = new CreatureCard("Zombie", "Yo it's a Zombie", new String[0], 6, 2);
         } catch (Exception e) {
             fail();
         }
@@ -31,7 +31,7 @@ public class CreatureCardTest {
 
     @Test
     public void modifyHealth() {
-        CreatureCard creatureCard = new CreatureCard("Zombie", "Yo it's a Zombie", 6, 2);
+        CreatureCard creatureCard = new CreatureCard("Zombie", "Yo it's a Zombie", new String[0], 6, 2);
 
         creatureCard.modifyHealth(6);
         assertEquals(6, creatureCard.health);
@@ -45,7 +45,7 @@ public class CreatureCardTest {
 
     @Test
     public void modifyDamage() {
-        CreatureCard creature = new CreatureCard("Zombie", "Yo it's a Zombie", 6, 2);
+        CreatureCard creature = new CreatureCard("Zombie", "Yo it's a Zombie", new String[0], 6, 2);
 
         creature.modifyDamage(6);
         assertEquals(8, creature.damage);

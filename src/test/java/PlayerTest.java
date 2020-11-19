@@ -79,8 +79,8 @@ class PlayerTest {
 
         @Test
         public void setGraveyardTest () {
-            assertEquals(player.setGraveyard(deck), player.getGraveyard(), "Adding to deck failed");
-            assertFalse(player.getGraveyard().isEmpty(), "Should not be null");
+            assertEquals(player.setGrave(deck), player.getGrave(), "Adding to deck failed");
+            assertFalse(player.getGrave().isEmpty(), "Should not be null");
         }
 
         @Test
@@ -106,7 +106,7 @@ class PlayerTest {
 
         @Test
         public void getGraveyardTest() {
-            player.setGraveyard(deck);
-            assertEquals(player.getGraveyard(), deck);
+            player.setGrave(deck);
+            assertEquals(player.getGrave(), deck);
         }
     }

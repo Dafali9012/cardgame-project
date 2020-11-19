@@ -23,11 +23,8 @@ public abstract class Cards {
         List<Card> result = new ArrayList<>();
         for(CardTemplate template : templates) {
             for(int i = 0; i < template.deckAmount; i++) {
-                if(template.type.equals("creature")) {
-                    result.add(new CreatureCard(template.title, template.description, template.health, template.damage));
-                } else if(template.type.equals("spell")) {
-                    result.add(new SpellCard(template.title, template.description, template.health, template.damage));
-                }
+                if(template.type.equals("creature")) result.add(new CreatureCard(template.title, template.description, template.effect, template.health, template.damage));
+                else if(template.type.equals("spell")) result.add(new SpellCard(template.title, template.description, template.effect, template.health, template.damage));
             }
         }
         Collections.shuffle(result);

@@ -9,8 +9,8 @@ public class CreatureCard extends Card {
         this.damage = 1;
     }
 
-    public CreatureCard(String title, String description, int health, int damage) {
-        super(title, description);
+    public CreatureCard(String title, String description, String[] effect, int health, int damage) {
+        super(title, description, effect);
         this.maxHealth = health;
         this.health = health;
         this.defaultDamage = damage;

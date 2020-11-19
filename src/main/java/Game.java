@@ -1,28 +1,60 @@
-import java.util.List;
-
 public class Game {
+    Player[] players;
+    Player player;
+    Player opponent;
+    int turnCounter = 1;
+
     public Game() {
-        cardUsage();
+        players = new Player[2];
+
+        players[0] = new Player("p1", 1, 100);
+        players[1] = new Player("p2", 2, 100);
+
+        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card-templates")));
+        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card-templates")));
+
+        playerTurn();
     }
 
-    private void cardUsage() {
-        CardTemplate[] templateDeck = Cards.getCardTemplates("res/card-templates");
-        List<Card> newDeck = Cards.generateDeck(templateDeck);
-        int cardCount = 1;
-        for(Card card : newDeck) {
-            System.out.println("- "+cardCount+" "+"-".repeat(20)+"\n");
-            System.out.println(card.title);
-            System.out.println(card.description);
-            if(card instanceof CreatureCard) {
-                CreatureCard c = (CreatureCard) card;
-                System.out.print("HP "+c.health+"/"+c.maxHealth);
-                System.out.println(" DMG "+c.damage+"\n");
-            } else if(card instanceof SpellCard) {
-                SpellCard c = (SpellCard) card;
-                System.out.println("HEAL "+c.health+" DMG "+c.damage+"\n");
+    private void playerTurn() {
+        boolean creatureCardPlayed = false;
+        boolean spellCardPlayed = false;
+
+        updatePlayers();
+
+        // play card (1/2)
+        playCard();
+
+        // play card (2/2)
+        playCard();
+
+        // attack with creature
+        attack();
+
+        // (option to end turn throughout) (option 0?)
+
+        turnCounter++;
+        endGameCheck();
+    }
+
+    private void attack() {}
+
+    private void playCard() {}
+
+    private void updatePlayers() {
+        for(Player player : players) {
+            if(turnCounter % 2 == 0) {
+                this.player = players[0];
+                this.opponent = players[1];
+            } else {
+                this.player = players[1];
+                this.opponent = players[0];
             }
-            cardCount++;
         }
-        System.out.println("-".repeat(25));
+    }
+
+    private void endGameCheck() {
+        // if game is over -> print end screen
+        // else playerTurn();
     }
 }
