@@ -1,5 +1,8 @@
 package java;
 
+import javax.smartcardio.Card;
+import java.util.List;
+
 public class Game {
 
     public Game() {
@@ -26,10 +29,10 @@ public class Game {
         }
         System.out.println("-".repeat(25));
     }
+
     /**
      * Creates a new game with two players, "Players 1" and "Players 2"
      */
-
     int turnCounter = 1;
     boolean gameOver = false;
     Player player1, player2;
