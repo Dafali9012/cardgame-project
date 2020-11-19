@@ -2,19 +2,17 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class InputHandler {
-    public InputHandler(){
+public abstract class InputHandler {
+    public InputHandler() {}
 
-    }
-
-    public String getText(){
+    public static String getText(){
         Scanner userInput = new Scanner(System.in);
         String userString = userInput.nextLine();
         userInput.close();
         return userString;
     }
 
-    public String getText(String prompt, List<String> validAnswers){
+    public static String getText(String prompt, List<String> validAnswers){
         Scanner userInput = new Scanner(System.in);
         String userString;
         do {
@@ -26,7 +24,7 @@ public class InputHandler {
         return userString;
     }
 
-    public int getInt(){
+    public static int getInt(){
         Scanner userInput = new Scanner(System.in);
         boolean wentToCatch;
         int userChoice = 0;
@@ -44,7 +42,7 @@ public class InputHandler {
         return userChoice;
     }
 
-    public int getInt(String prompt){
+    public static int getInt(String prompt){
         Scanner userInput = new Scanner(System.in);
         boolean wentToCatch;
         int userChoice = 0;
@@ -63,7 +61,7 @@ public class InputHandler {
         return userChoice;
     }
 
-    public int getInt(String prompt, int maxValue){
+    public static int getInt(String prompt, int maxValue){
         Scanner userInput = new Scanner(System.in);
         boolean wentToCatch;
         int userChoice = 0;
@@ -81,7 +79,7 @@ public class InputHandler {
         userInput.close();
         return userChoice;
     }
-    public int getInt(String prompt, int minValue, int maxValue){
+    public static int getInt(String prompt, int minValue, int maxValue){
         Scanner userInput = new Scanner(System.in);
         boolean wentToCatch;
         int userChoice = 0;

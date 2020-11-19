@@ -7,8 +7,8 @@ public class SpellCard extends Card {
         this.damage = 1;
     }
 
-    public SpellCard(String title, String description, int health, int damage) {
-        super(title, description);
+    public SpellCard(String title, String description, String[] effect, int health, int damage) {
+        super(title, description, effect);
         this.health = health;
         this.damage = damage;
     }

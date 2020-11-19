@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Player {
@@ -11,7 +12,7 @@ public class Player {
     private List<Card> deck = new ArrayList<>();
     private List<Card> hand = new ArrayList<>();
     private List<Card> play = new ArrayList<>();
-    private List<Card> graveyard = new ArrayList<>();
+    private List<Card> grave = new ArrayList<>();
 
 
     public Player() {
@@ -61,8 +62,8 @@ public class Player {
         return this.play = play;
     }
 
-    public List<Card> setGraveyard(List<Card> graveyard) {
-        return this.graveyard = graveyard;
+    public List<Card> setGrave(List<Card> grave) {
+        return this.grave = grave;
     }
 
     public List<Card> getDeck(){
@@ -77,8 +78,8 @@ public class Player {
         return play;
     }
 
-    public List<Card> getGraveyard(){
-        return graveyard;
+    public List<Card> getGrave(){
+        return grave;
     }
 
     public String getName() {

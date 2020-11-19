@@ -28,8 +28,6 @@ public class TestUserInterface {
     public  void testDispenseHand(){
         System.out.println("======TEST ONE dispenseHand");
         //Assertions.assertNotNull(userInterface.dispenseHand(card-templates));
-
     }
-
 }
 */

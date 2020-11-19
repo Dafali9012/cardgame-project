@@ -19,7 +19,7 @@ public class SpellCardTest {
         SpellCard spellCard = null;
 
         try {
-            spellCard = new SpellCard("Fireball", "Ball of flame that both damages and heals!", 4, 4);
+            spellCard = new SpellCard("Fireball", "Ball of flame that both damages and heals!", new String[0], 4, 4);
         } catch (Exception e) {
             fail();
         }
