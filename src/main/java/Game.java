@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Game {
     Player[] players;
     Player player;
@@ -38,6 +40,11 @@ public class Game {
     }
 
     public boolean drawCard(Player player) {
+
+        if(player.getHand().size() >= 4) moveCard(0, player.getDeck(), player.getHand());
+        else for(int i = 0; i < (4-player.getHand().size()); i++)
+            moveCard(0, player.getDeck(), player.getHand());
+
         return true;
     }
 
