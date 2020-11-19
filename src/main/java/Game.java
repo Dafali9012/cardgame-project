@@ -7,6 +7,7 @@ public class Game {
     int turnCounter = 1;
 
     public Game() {
+
         players = new Player[2];
 
         players[0] = new Player("p1", 1, 100);
@@ -51,6 +52,14 @@ public class Game {
     private void attack() {}
 
     private void playCard() {}
+
+    public void attackCard(CreatureCard attacker, CreatureCard victim){
+        victim.modifyHealth(-attacker.damage);
+    }
+
+    public void attackOpponent(CreatureCard attacker, Player victim){
+        victim.modifyHealth(-attacker.damage);
+    }
 
     public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
         if (cardIndex<0) {
