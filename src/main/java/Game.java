@@ -1,8 +1,10 @@
+import java.util.List;
+
 public class Game {
     Player[] players;
     Player player;
     Player opponent;
-    int turnCounter = 1;
+    int turnCount = 1;
 
     public Game() {
         players = new Player[2];
@@ -10,8 +12,13 @@ public class Game {
         players[0] = new Player("p1", 1, 100);
         players[1] = new Player("p2", 2, 100);
 
-        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card-templates")));
-        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card-templates")));
+        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/only-creatures")));
+        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/only-creatures")));
+
+        for(int i = 0; i < 4; i++) {
+            moveCard(0, players[0].getDeck(), players[0].getPlay());
+            moveCard(0, players[1].getDeck(), players[1].getPlay());
+        }
 
         playerTurn();
     }
@@ -21,6 +28,10 @@ public class Game {
         boolean spellCardPlayed = false;
 
         updatePlayers();
+
+        drawCard(player);
+
+        Screen.printGameState(player, opponent, turnCount);
 
         // play card (1/2)
         playCard();
@@ -33,8 +44,14 @@ public class Game {
 
         // (option to end turn throughout) (option 0?)
 
-        turnCounter++;
+        turnCount++;
         endGameCheck();
+    }
+
+    private void drawCard(Player player) {
+        int handSize = player.getHand().size();
+        if(handSize >= 4) moveCard(0, player.getDeck(), player.getHand());
+        else for(int i = 0; i < (4-handSize); i++) moveCard(0, player.getDeck(), player.getHand());
     }
 
     private void attack() {}
@@ -43,14 +60,24 @@ public class Game {
 
     private void updatePlayers() {
         for(Player player : players) {
-            if(turnCounter % 2 == 0) {
-                this.player = players[0];
-                this.opponent = players[1];
-            } else {
+            if(turnCount % 2 == 0) {
                 this.player = players[1];
                 this.opponent = players[0];
+            } else {
+                this.player = players[0];
+                this.opponent = players[1];
             }
         }
+    }
+
+    private boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
+        if (cardIndex<0) {
+            return false;
+        }
+        else if (cardIndex>from.size()) {
+            return false;
+        }
+        return to.add(from.remove(cardIndex));
     }
 
     private void endGameCheck() {

@@ -40,16 +40,6 @@ public class Player {
         else this.health = recent;
     }
 
-    public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
-        if (cardIndex<0) {
-            return false;
-        }
-        else if (cardIndex>from.size()) {
-            return false;
-        }
-        return to.add(from.remove(cardIndex));
-    }
-
     public List<Card> setDeck(List<Card> deck){
         return this.deck = deck;
     }
