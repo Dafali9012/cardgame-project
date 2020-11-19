@@ -37,9 +37,14 @@ public class Game {
         endGameCheck();
     }
 
+    public boolean drawCard(Player player) {
+        return true;
+    }
+
     private void attack() {}
 
     private void playCard() {}
+
     public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
         if (cardIndex<0) {
             return false;
