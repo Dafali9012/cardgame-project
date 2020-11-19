@@ -53,13 +53,6 @@ class PlayerTest {
         }
 
         @Test
-        public void moveCardTest () {
-            assertTrue(player.moveCard(1, deck, to), "Moving card not successful");
-            assertFalse(player.moveCard(-1, deck, to), "Index cannot be negative");
-            assertFalse(player.moveCard(100, deck, to), "Index cannot be longer than the list itself");
-        }
-
-        @Test
         public void setDeckTest () {
             assertEquals(player.setDeck(deck), player.getDeck(), "Adding to deck failed");
             assertFalse(player.getDeck().isEmpty(), "Should not be null");

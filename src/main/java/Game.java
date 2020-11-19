@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Game {
     Player[] players;
     Player player;
@@ -37,9 +39,28 @@ public class Game {
         endGameCheck();
     }
 
+    public boolean drawCard(Player player) {
+
+        if(player.getHand().size() >= 4) moveCard(0, player.getDeck(), player.getHand());
+        else for(int i = 0; i < (4-player.getHand().size()); i++)
+            moveCard(0, player.getDeck(), player.getHand());
+
+        return true;
+    }
+
     private void attack() {}
 
     private void playCard() {}
+
+    public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
+        if (cardIndex<0) {
+            return false;
+        }
+        else if (cardIndex>from.size()) {
+            return false;
+        }
+        return to.add(from.remove(cardIndex));
+    }
 
     private void updatePlayers() {
         for(Player player : players) {
