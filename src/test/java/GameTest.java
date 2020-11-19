@@ -52,4 +52,14 @@ public class GameTest {
         game.attackCard(creature, creature);
         assertEquals(0, creature.health);
     }
+
+    @Test
+    public void attackOpponentTest () {
+        game.attackOpponent(creature, player);
+        assertEquals(98, player.getHealth());
+
+        creature.modifyDamage(100);
+        game.attackOpponent(creature, player);
+        assertEquals(0, player.getHealth());
+    }
 }
