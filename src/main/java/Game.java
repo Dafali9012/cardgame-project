@@ -52,6 +52,8 @@ public class Game {
 
     private void playCard() {}
 
+    public void attackCard(CreatureCard attacker, CreatureCard victim){}
+
     public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
         if (cardIndex<0) {
             return false;

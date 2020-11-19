@@ -7,6 +7,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
+    CreatureCard creature;
     List<Card> deck;
     List<Card> to;
     Player player;
@@ -16,6 +17,7 @@ public class GameTest {
     public void beforeTest(){
         deck = Cards.generateDeck(Cards.getCardTemplates("res/card-templates"));
         to = Cards.generateDeck(Cards.getCardTemplates("res/card-templates"));
+        creature = new CreatureCard("Dafali", "Your code sucks!", new String[0], 4, 2);
         player = new Player("Daniel", 5, 100);
         game = new Game();
     }
@@ -41,4 +43,13 @@ public class GameTest {
         assertTrue(game.drawCard(player));
     }
 
+    @Test
+    public void attackCardTest () {
+        game.attackCard(creature, creature);
+        assertEquals(2, creature.health);
+
+        creature.modifyDamage(4);
+        game.attackCard(creature, creature);
+        assertEquals(0, creature.health);
+    }
 }
