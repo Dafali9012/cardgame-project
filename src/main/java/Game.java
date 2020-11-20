@@ -70,11 +70,8 @@ public class Game {
         }
     }
 
-    public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
-        if (cardIndex < 0) return false;
-        else if (cardIndex > from.size()) return false;
-        to.add(from.remove(cardIndex));
-        return true;
+    public void moveCard(int cardIndex, List<Card> from, List<Card> to){
+        if (cardIndex >= 0 && cardIndex < from.size()) to.add(from.remove(cardIndex));
     }
 
     public void endGameCheck() {
