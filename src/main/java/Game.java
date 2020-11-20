@@ -94,6 +94,6 @@ public class Game {
                     + " remaining health");
         } else
             turnCounter++;
-            updatePlayers();
+            executeTurn();
     }
 }
