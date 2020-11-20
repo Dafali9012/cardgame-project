@@ -4,7 +4,7 @@ public class Game {
     Player[] players;
     Player player;
     Player opponent;
-    int turnCounter = 1;
+    int turnCount = 1;
 
     public Game() {
 
@@ -13,17 +13,26 @@ public class Game {
         players[0] = new Player("p1", 1, 100);
         players[1] = new Player("p2", 2, 100);
 
-        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card-templates")));
-        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card-templates")));
+        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/only-creatures")));
+        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/only-creatures")));
+
+        for(int i = 0; i < 4; i++) {
+            moveCard(0, players[0].getDeck(), players[0].getPlay());
+            moveCard(0, players[1].getDeck(), players[1].getPlay());
+        }
 
         playerTurn();
     }
 
-    private void playerTurn() {
+    public void playerTurn() {
         boolean creatureCardPlayed = false;
         boolean spellCardPlayed = false;
 
         updatePlayers();
+
+        drawCard(player);
+
+        Screen.printGameState(player, opponent, turnCount);
 
         // play card (1/2)
         playCard();
@@ -36,22 +45,19 @@ public class Game {
 
         // (option to end turn throughout) (option 0?)
 
-        turnCounter++;
+        turnCount++;
         endGameCheck();
     }
 
-    public boolean drawCard(Player player) {
-
-        if(player.getHand().size() >= 4) moveCard(0, player.getDeck(), player.getHand());
-        else for(int i = 0; i < (4-player.getHand().size()); i++)
-            moveCard(0, player.getDeck(), player.getHand());
-
-        return true;
+    public void drawCard(Player player) {
+        int handSize = player.getHand().size();
+        if(handSize >= 4) moveCard(0, player.getDeck(), player.getHand());
+        else for(int i = 0; i < (4-handSize); i++) moveCard(0, player.getDeck(), player.getHand());
     }
 
-    private void attack() {}
+    public void attack() {}
 
-    private void playCard() {}
+    public void playCard() {}
 
     public void attackCard(CreatureCard attacker, CreatureCard victim){
         victim.modifyHealth(-attacker.damage);
@@ -61,29 +67,23 @@ public class Game {
         victim.modifyHealth(-attacker.damage);
     }
 
-    public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
-        if (cardIndex<0) {
-            return false;
-        }
-        else if (cardIndex>from.size()) {
-            return false;
-        }
-        return to.add(from.remove(cardIndex));
-    }
-
-    private void updatePlayers() {
+    public void updatePlayers() {
         for(Player player : players) {
-            if(turnCounter % 2 == 0) {
-                this.player = players[0];
-                this.opponent = players[1];
-            } else {
+            if(turnCount % 2 == 0) {
                 this.player = players[1];
                 this.opponent = players[0];
+            } else {
+                this.player = players[0];
+                this.opponent = players[1];
             }
         }
     }
 
-    private void endGameCheck() {
+    public void moveCard(int cardIndex, List<Card> from, List<Card> to){
+        if (cardIndex >= 0 && cardIndex < from.size()) to.add(from.remove(cardIndex));
+    }
+
+    public void endGameCheck() {
         // if game is over -> print end screen
         // else playerTurn();
     }
