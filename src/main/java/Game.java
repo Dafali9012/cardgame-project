@@ -7,6 +7,7 @@ public class Game {
     int turnCount = 1;
 
     public Game() {
+
         players = new Player[2];
 
         players[0] = new Player("p1", 1, 100);
@@ -57,6 +58,14 @@ public class Game {
     public void attack() {}
 
     public void playCard() {}
+
+    public void attackCard(CreatureCard attacker, CreatureCard victim){
+        victim.modifyHealth(-attacker.damage);
+    }
+
+    public void attackOpponent(CreatureCard attacker, Player victim){
+        victim.modifyHealth(-attacker.damage);
+    }
 
     public void updatePlayers() {
         for(Player player : players) {

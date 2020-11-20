@@ -9,6 +9,7 @@ public class GameTest {
     List<Card> deck = Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard"));
     List<Card> to = new ArrayList<>();
     Player player = new Player("Daniel", 5, 100);
+    CreatureCard creature = new CreatureCard("Dafali", "Your code sucks!", new String[0], 4, 2);
     Game game = new Game();
 
     @Test
@@ -30,5 +31,25 @@ public class GameTest {
 
         game.drawCard(player);
         assertEquals(5, player.getHand().size());
+    }
+
+    @Test
+    public void attackCardTest () {
+        game.attackCard(creature, creature);
+        assertEquals(2, creature.health);
+
+        creature.modifyDamage(4);
+        game.attackCard(creature, creature);
+        assertEquals(0, creature.health);
+    }
+
+    @Test
+    public void attackOpponentTest () {
+        game.attackOpponent(creature, player);
+        assertEquals(98, player.getHealth());
+
+        creature.modifyDamage(100);
+        game.attackOpponent(creature, player);
+        assertEquals(0, player.getHealth());
     }
 }
