@@ -23,7 +23,7 @@ public class Game {
         playerTurn();
     }
 
-    private void playerTurn() {
+    public void playerTurn() {
         boolean creatureCardPlayed = false;
         boolean spellCardPlayed = false;
 
@@ -48,17 +48,17 @@ public class Game {
         endGameCheck();
     }
 
-    private void drawCard(Player player) {
+    public void drawCard(Player player) {
         int handSize = player.getHand().size();
         if(handSize >= 4) moveCard(0, player.getDeck(), player.getHand());
         else for(int i = 0; i < (4-handSize); i++) moveCard(0, player.getDeck(), player.getHand());
     }
 
-    private void attack() {}
+    public void attack() {}
 
-    private void playCard() {}
+    public void playCard() {}
 
-    private void updatePlayers() {
+    public void updatePlayers() {
         for(Player player : players) {
             if(turnCount % 2 == 0) {
                 this.player = players[1];
@@ -70,17 +70,14 @@ public class Game {
         }
     }
 
-    private boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
-        if (cardIndex<0) {
-            return false;
-        }
-        else if (cardIndex>from.size()) {
-            return false;
-        }
-        return to.add(from.remove(cardIndex));
+    public boolean moveCard(int cardIndex, List<Card> from, List<Card> to){
+        if (cardIndex < 0) return false;
+        else if (cardIndex > from.size()) return false;
+        to.add(from.remove(cardIndex));
+        return true;
     }
 
-    private void endGameCheck() {
+    public void endGameCheck() {
         // if game is over -> print end screen
         // else playerTurn();
     }

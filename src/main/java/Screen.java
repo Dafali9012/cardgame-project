@@ -7,26 +7,27 @@ public abstract class Screen {
         String opponentHp = "HP: "+opponent.getHealth()+" / 100";
         String pl = "Player "+player.getId();
         String playerHp = "HP: "+player.getHealth()+" / 100";
+        String cardIndent = " ".repeat(screenWidth/4);
         String opponentPlay = "";
         String playerPlay = "";
         String playerHand = "";
 
         for(Card card : opponent.getPlay()) {
             CreatureCard c = (CreatureCard) card;
-            opponentPlay = opponentPlay.concat((opponent.getPlay().indexOf(c)+1)+". "+c.title+", HP: "+c.health+"/"+c.maxHealth + " DMG: " + c.damage + "\n");
+            opponentPlay = opponentPlay.concat(cardIndent + (opponent.getPlay().indexOf(c) + 1) + ". " + c.title + ", HP: " + c.health + "/" + c.maxHealth + " DMG: " + c.damage + "\n");
         }
         for(Card card : player.getPlay()) {
             CreatureCard c = (CreatureCard) card;
-            playerPlay = playerPlay.concat((player.getPlay().indexOf(c)+1)+". "+c.title+", HP: "+c.health+"/"+c.maxHealth + " DMG: " + c.damage + "\n");
+            playerPlay = playerPlay.concat(cardIndent + (player.getPlay().indexOf(c)+1)+". "+c.title+", HP: "+c.health+"/"+c.maxHealth + " DMG: " + c.damage + "\n");
         }
         for(Card card : player.getHand()) {
             String cardInfo = "";
             if(card instanceof CreatureCard) {
                 CreatureCard c = (CreatureCard) card;
-                cardInfo = (player.getHand().indexOf(card) + 1) + ". " + c.title + ", HP: " + c.health + "/" + c.maxHealth + " DMG: " + c.damage + "\n";
+                cardInfo = cardIndent + (player.getHand().indexOf(card) + 1) + ". " + c.title + ", HP: " + c.health + "/" + c.maxHealth + " DMG: " + c.damage + "\n";
             } else if(card instanceof SpellCard) {
                 SpellCard c = (SpellCard) card;
-                cardInfo = (player.getHand().indexOf(card) + 1) + ". " + c.title+", HEAL: " + c.health + " DMG: " + c.damage + "\n";
+                cardInfo = cardIndent + (player.getHand().indexOf(card) + 1) + ". " + c.title+", HEAL: " + c.health + " DMG: " + c.damage + "\n";
             }
             playerHand = playerHand.concat(cardInfo);
         }
@@ -41,8 +42,10 @@ public abstract class Screen {
             " ".repeat(calcPadding(opponentHp)[0]) + opponentHp + " ".repeat(calcPadding(opponentHp)[1]) + "\n" +
             "\n" +
             " ".repeat(calcPadding("- Opponent cards in play -")[0]) + "- Opponent cards in play -" + "\n" +
+            " ".repeat(calcPadding("- Opponent cards in play -")[0]) + "-".repeat("- Opponent cards in play -".length()) + "\n" +
             opponentPlay + "\n" +
-            " ".repeat(calcPadding("- Player" + player.getId() + "cards in play -")[0]) + "- Player cards in play -" + "\n" +
+            " ".repeat(calcPadding("- Player " + player.getId() + " cards in play -")[0]) + "- Player " + player.getId() + " cards in play -" + "\n" +
+            " ".repeat(calcPadding("- Player " + player.getId() + " cards in play -")[0]) + "-".repeat(("- Player " + player.getId() + " cards in play -").length()) + "\n" +
             playerPlay + "\n" +
             " ".repeat(calcPadding(pl)[0]) + pl + "\n" +
             " ".repeat(calcPadding(playerHp)[0]) + playerHp + " ".repeat(calcPadding(playerHp)[1]) + "\n" +
