@@ -29,6 +29,9 @@ public class Player {
         this.health = maxHealth;
     }
 
+    /**
+     * negative values for harm makes actual harm(subtracts the health)
+     */
     public void modifyHealth(int harm){
         int recent = (this.health + harm);
         if(recent > maxHealth){
@@ -76,7 +79,7 @@ public class Player {
         return name;
     }
 
-    public int  getHealth() {
+    public int getHealth() {
         return health;
     }
 

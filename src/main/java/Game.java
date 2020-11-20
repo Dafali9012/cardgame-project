@@ -37,7 +37,7 @@ public class Game {
         // (option to end turn throughout) (option 0?)
 
         turnCounter++;
-        //endGameCheck();
+        endGameCheck();
     }
 
     public boolean drawCard(Player player) {
