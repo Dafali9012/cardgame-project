@@ -90,8 +90,10 @@ public class Game {
             System.out.println("You have won with " + player.getHealth()
                     + " remaining health");
         } else if(player.getHealth() < 1){
-            System.out.println("Your opponent have won, you had " + player.getHealth()
+            System.out.println("Your opponent have won with " + opponent.getHealth()
                     + " remaining health");
-        } else playerTurn();
+        } else
+            turnCounter++;
+            updatePlayers();
     }
 }
