@@ -62,4 +62,28 @@ public class GameTest {
         game.attackOpponent(creature, player);
         assertEquals(0, player.getHealth());
     }
+
+    @Test
+    public void testPlayerInitialHealth(){
+        assertEquals(100, player.getHealth(), "Player health is not as expected");
+    }
+
+    @Test
+    public void testPlayerDead(){
+        player.modifyHealth(-100);
+        assertTrue(player.getHealth() < 1, "Player health is expected to be less than 1 but was "
+                + player.getHealth());
+    }
+
+    @Test
+    public void testOpponentInitialHealth(){
+        assertEquals(100, game.opponent.getHealth(), "Opponent health is not as expected");
+    }
+
+    @Test
+    public void testOpponentDead(){
+        game.opponent.modifyHealth(-100);
+        assertTrue(game.opponent.getHealth() < 1, "Opponent health is expected to be less than 1 but was "
+                + player.getHealth());
+    }
 }

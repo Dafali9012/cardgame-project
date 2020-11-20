@@ -76,7 +76,7 @@ public class Player {
         return name;
     }
 
-    public int getHealth() {
+    public int  getHealth() {
         return health;
     }
 

@@ -37,7 +37,7 @@ public class Game {
         // (option to end turn throughout) (option 0?)
 
         turnCounter++;
-        endGameCheck();
+        //endGameCheck();
     }
 
     public boolean drawCard(Player player) {
@@ -86,5 +86,12 @@ public class Game {
     private void endGameCheck() {
         // if game is over -> print end screen
         // else playerTurn();
+        if(opponent.getHealth() < 1){
+            System.out.println("You have won with " + player.getHealth()
+                    + " remaining health");
+        } else if(player.getHealth() < 1){
+            System.out.println("Your opponent have won, you had " + player.getHealth()
+                    + " remaining health");
+        } else playerTurn();
     }
 }
