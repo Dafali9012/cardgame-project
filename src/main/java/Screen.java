@@ -1,3 +1,5 @@
+package main.java;
+
 public abstract class Screen {
     private static int screenWidth = 64;
 

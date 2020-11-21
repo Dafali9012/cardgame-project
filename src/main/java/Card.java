@@ -1,3 +1,5 @@
+package main.java;
+
 public abstract class Card {
     public String title, description;
     public String[] effect;

@@ -1,3 +1,5 @@
+package main.java;
+
 public class CreatureCard extends Card {
     public int maxHealth, health, defaultDamage, damage;
 

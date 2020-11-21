@@ -1,3 +1,5 @@
+package main.java;
+
 public class SpellCard extends Card {
     public int health, damage;
 
