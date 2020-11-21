@@ -1,8 +1,3 @@
-package test.java;
-
-import main.java.Card;
-import main.java.Cards;
-import main.java.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -1,6 +1,4 @@
-package main.java;
-
-public class CreatureCard extends Card {
+public class CreatureCard extends Card implements Damagable {
     public int maxHealth, health, defaultDamage, damage;
 
     public CreatureCard() {

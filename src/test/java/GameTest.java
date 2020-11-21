@@ -1,8 +1,4 @@
-package test.java;
-
-import main.java.*;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +9,7 @@ public class GameTest {
     List<Card> to = new ArrayList<>();
     Player player = new Player("Daniel", 5, 100);
     CreatureCard creature = new CreatureCard("Dafali", "Your code sucks!", new String[0], 4, 2);
-    Game game = new Game();
+    Game game = new Game(true);
 
     @Test
     public void moveCardTest () {
@@ -37,22 +33,14 @@ public class GameTest {
     }
 
     @Test
-    public void attackCardTest () {
-        game.attackCard(creature, creature);
+    public void modifyHealthTest () {
+        game.modifyHealth(-2, creature);
         assertEquals(2, creature.health);
 
-        creature.modifyDamage(4);
-        game.attackCard(creature, creature);
+        game.modifyHealth(100, creature);
+        assertEquals(creature.maxHealth, creature.health);
+
+        game.modifyHealth(-100, creature);
         assertEquals(0, creature.health);
-    }
-
-    @Test
-    public void attackOpponentTest () {
-        game.attackOpponent(creature, player);
-        assertEquals(98, player.getHealth());
-
-        creature.modifyDamage(100);
-        game.attackOpponent(creature, player);
-        assertEquals(0, player.getHealth());
     }
 }

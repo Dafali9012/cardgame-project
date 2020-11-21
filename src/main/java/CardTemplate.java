@@ -1,5 +1,3 @@
-package main.java;
-
 public class CardTemplate {
     public String type, title, description;
     public int health, damage, deckAmount;

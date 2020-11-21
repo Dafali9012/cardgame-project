@@ -1,5 +1,3 @@
-package main.java;
-
 public abstract class Screen {
     private static int screenWidth = 64;
 
@@ -54,7 +52,7 @@ public abstract class Screen {
             "\n" +
             "-".repeat(calcPadding(" My Hand ")[0]) + " My Hand " + "-".repeat(calcPadding(" My Hand ")[1]) + "\n" +
             playerHand +
-            "-".repeat(screenWidth)
+            "-".repeat(screenWidth) + "\n"
         );
     }
 
@@ -64,15 +62,28 @@ public abstract class Screen {
 
         System.out.println(
             "-".repeat(calcPadding(gameOverTitle)[0]) + gameOverTitle + "-".repeat(calcPadding(gameOverTitle)[1]) + "\n" +
-            "\n".repeat(5) +
+            "\n".repeat(10) +
             " ".repeat(calcPadding(endMessage)[0]) + endMessage + " ".repeat(calcPadding(endMessage)[1]) + "\n" +
-            "\n".repeat(5) +
+            "\n".repeat(10) +
             "-".repeat(screenWidth)
         );
     }
 
+    public static void printPlayerStart(Player player, int turnCount) {
+        String title = " Turn "+turnCount+" ";
+        String message = "Player "+player.getId()+" get ready! ";
+
+        System.out.println(
+                "-".repeat(calcPadding(title)[0]) + title + "-".repeat(calcPadding(title)[1]) + "\n" +
+                        "\n".repeat(10) +
+                        " ".repeat(calcPadding(message)[0]) + message + " ".repeat(calcPadding(message)[1]) + "\n" +
+                        "\n".repeat(10) +
+                        "-".repeat(screenWidth)
+        );
+    }
+
     public static void printSpacing(int rows) {
-        System.out.println("\n".repeat(rows));
+        System.out.print("\n".repeat(rows));
     }
 
     private static int[] calcPadding(String text) {

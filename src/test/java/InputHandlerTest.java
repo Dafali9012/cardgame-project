@@ -1,6 +1,3 @@
-package test.java;
-
-import main.java.InputHandler;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
