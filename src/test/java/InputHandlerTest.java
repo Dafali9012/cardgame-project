@@ -11,26 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class InputHandlerTest {
     private List<String> validAnswers = new ArrayList<>(List.of("yes","no"));
 
-    //simulate user input of value 1.
-    @Test
-    void getIntTest() {
-        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
-        System.setIn(in);
-        assertEquals(1, InputHandler.getInt());
-    }
-
-    //simulate user input of value 1 with string prompt as parameter.
-    @Test
-    void getIntWithPromptTest() {
-        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
-        System.setIn(in);
-        assertEquals(1, InputHandler.getInt("Test with prompt string"));
-    }
-
     //simulate user input of value 1 with string prompt and max value as parameter.
     @Test
     void getIntWithPromptAndMaxValueTest() {
-        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("1\n".getBytes());
         System.setIn(in);
         assertEquals(1, InputHandler.getInt("Test with prompt string", 3));
     }
@@ -38,17 +22,9 @@ class InputHandlerTest {
     //simulate user input of value 1 with string prompt, min value and max value as parameter.
     @Test
     void getIntWithPromptAndMinValueAndMaxValueTest() {
-        ByteArrayInputStream in = new ByteArrayInputStream("1".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("1\n".getBytes());
         System.setIn(in);
         assertEquals(1, InputHandler.getInt("Test with prompt string",0,3));
-    }
-
-    //simulate user input of value "user written text".
-    @Test
-    void getTextTest() {
-        ByteArrayInputStream in = new ByteArrayInputStream("user written text".getBytes());
-        System.setIn(in);
-        assertEquals("user written text", InputHandler.getText());
     }
 
     //simulate user input of value "yes" with a String prompt and an Arraylsit of valid answers.
