@@ -1,3 +1,6 @@
+package test.java;
+
+import main.java.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
