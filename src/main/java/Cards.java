@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public abstract class Cards {
+
     public static CardTemplate[] getCardTemplates(String path) {
         CardTemplate[] result = new CardTemplate[0];
         try {
@@ -21,10 +22,12 @@ public abstract class Cards {
 
     public static List<Card> generateDeck(CardTemplate[] templates) {
         List<Card> result = new ArrayList<>();
-        for(CardTemplate template : templates) {
-            for(int i = 0; i < template.deckAmount; i++) {
-                if(template.type.equals("creature")) result.add(new CreatureCard(template.title, template.description, template.effect, template.health, template.damage));
-                else if(template.type.equals("spell")) result.add(new SpellCard(template.title, template.description, template.effect, template.health, template.damage));
+        for (CardTemplate template : templates) {
+            for (int i = 0; i < template.deckAmount; i++) {
+                if (template.type.equals("creature"))
+                    result.add(new CreatureCard(template.title, template.description, template.effect, template.health, template.damage));
+                else if (template.type.equals("spell"))
+                    result.add(new SpellCard(template.title, template.description, template.effect, template.health, template.damage));
             }
         }
         Collections.shuffle(result);
