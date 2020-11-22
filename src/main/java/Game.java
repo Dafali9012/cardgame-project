@@ -64,6 +64,7 @@ public class Game {
 
     public void modifyHealth(int amount, Damagable target) {
         target.modifyHealth(amount);
+        checkHp(target);
     }
 
     public void playCard(int cardNum, int maxCards, List<String> typesPlayed) {
@@ -124,7 +125,18 @@ public class Game {
         }
     }
 
-    public boolean checkHp(Damagable target){
-        return target.getClass().getSimpleName().equals("Player");
+    public void checkHp(Damagable target){
+        if (target instanceof Player){
+            if (target.getHealth()<1){
+                gameOver = true;
+            }
+        }
+        if(target instanceof CreatureCard) {
+            if (target.getHealth()<1){
+                moveCard(opponent.getPlay().indexOf(target), opponent.getPlay(),opponent.getGrave());
+                modifyHealth(target.getHealth(),opponent);
+                checkHp(opponent);
+            }
+        }
     }
 }
