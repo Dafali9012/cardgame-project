@@ -123,4 +123,8 @@ public class Game {
             playerTurn();
         }
     }
+
+    public boolean checkHp(Damagable target){
+        return target.getClass().getSimpleName().equals("Player");
+    }
 }

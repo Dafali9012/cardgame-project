@@ -2,7 +2,8 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameTest {
     List<Card> deck = Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard"));
@@ -42,5 +43,10 @@ public class GameTest {
 
         game.modifyHealth(-100, creature);
         assertEquals(0, creature.health);
+    }
+
+    @Test
+    public void checkHpTest(){
+        assertTrue(game.checkHp(player));
     }
 }
