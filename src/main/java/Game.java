@@ -18,11 +18,13 @@ public class Game {
         players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard")));
         players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard")));
 
-        if(!test) playerTurn();
+        playerTurn(test);
     }
 
-    public void playerTurn() {
+    public void playerTurn(boolean test) {
         updatePlayers();
+
+        if(test) return;
 
         playerChangeScreen();
 
@@ -98,6 +100,38 @@ public class Game {
 
     public void resolveCardEffect(Card card) {
         if(card.effect.length==0) return;
+
+        for(String instruction : card.effect) {
+            String[] iSplit = instruction.split("-");
+
+            Player firstPlayerTarget = null;
+            Player secondPlayerTarget = null;
+
+            if(iSplit[0].equals("player")) firstPlayerTarget = this.player;
+            else if(iSplit[0].equals("opponent")) firstPlayerTarget = this.opponent;
+
+            if(iSplit[1].equals("heal")) {
+                if(iSplit[2].equals("one")) {
+                    int input = InputHandler.getInt("choose target: ", firstPlayerTarget.getPlay().size());
+                    modifyHealth(((SpellCard) card).health, (CreatureCard) firstPlayerTarget.getPlay().get(input));
+                } else if(iSplit[2].equals("all")) {
+                    for(Card cardInPlay : firstPlayerTarget.getPlay()) {
+                        modifyHealth(((SpellCard) card).health, (CreatureCard) cardInPlay);
+                    }
+                }
+            } else if(iSplit[1].equals("dmg")) {
+                if(iSplit[2].equals("one")) {
+                    int input = InputHandler.getInt("choose target: ", firstPlayerTarget.getPlay().size());
+                    modifyHealth(((SpellCard) card).damage, (CreatureCard) firstPlayerTarget.getPlay().get(input));
+                } else if(iSplit[2].equals("all")) {
+                    for(Card cardInPlay : firstPlayerTarget.getPlay()) {
+                        modifyHealth(((SpellCard) card).damage, (CreatureCard) cardInPlay);
+                    }
+                }
+            } else if(iSplit[1].equals("ress")) {
+                // ressurrect
+            }
+        }
     }
 
     public void updatePlayers() {
@@ -120,7 +154,7 @@ public class Game {
         if(gameOver) Screen.printGameOver(player, turnCount);
         else {
             turnCount++;
-            playerTurn();
+            playerTurn(false);
         }
     }
 }
