@@ -1,3 +1,4 @@
 public interface Damagable {
-    public void modifyHealth(int amount);
+    void modifyHealth(int amount);
+    int getHealth();
 }

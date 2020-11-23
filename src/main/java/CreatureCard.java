@@ -27,4 +27,7 @@ public class CreatureCard extends Card implements Damagable {
         int result = this.damage + amount;
         this.damage = Math.max(result, 0);
     }
+    public int getHealth() {
+        return health;
+    }
 }

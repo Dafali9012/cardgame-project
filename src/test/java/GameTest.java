@@ -40,7 +40,35 @@ public class GameTest {
         game.modifyHealth(100, creature);
         assertEquals(creature.maxHealth, creature.health);
 
-        game.modifyHealth(-100, creature);
+//        game.modifyHealth(-100, creature);
+//        assertEquals(0, creature.health);
+    }
+
+    @Test
+    public void checkHpTestWithPlayer(){
+        game.checkHp(player);
+        assertNotNull(player);
+        assertEquals(100, player.getHealth());
+        player.modifyHealth(-20);
+        assertEquals(80, player.getHealth());
+        game.checkHp(player);
+        assertFalse(game.gameOver);
+        player.modifyHealth(-80);
+        assertEquals(0, player.getHealth());
+        game.checkHp(player);
+        assertTrue(game.gameOver);
+    }
+
+    @Test
+    public void checkHpTestWithCreature(){
+        game.checkHp(creature);
+        assertNotNull(creature);
+        creature.modifyHealth(-2);
+        assertEquals(2, creature.health);
+        game.checkHp(creature);
+        assertFalse(game.gameOver);
+        creature.modifyHealth(-2);
         assertEquals(0, creature.health);
+        assertFalse(game.gameOver);
     }
 }
