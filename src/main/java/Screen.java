@@ -1,5 +1,6 @@
 public abstract class Screen {
     private static int screenWidth = 64;
+    private static String cardIndent = " ".repeat(screenWidth/4);
 
     public static void printGameState(Player player, Player opponent, int turnCount) {
         String gameTitle = " ~* Goblins and Glitches *~ ";
@@ -7,7 +8,6 @@ public abstract class Screen {
         String opponentHp = "HP: "+opponent.getHealth()+" / 100";
         String pl = "Player "+player.getId();
         String playerHp = "HP: "+player.getHealth()+" / 100";
-        String cardIndent = " ".repeat(screenWidth/4);
         String opponentPlay = "";
         String playerPlay = "";
         String playerHand = "";
@@ -53,6 +53,27 @@ public abstract class Screen {
             "-".repeat(calcPadding(" My Hand ")[0]) + " My Hand " + "-".repeat(calcPadding(" My Hand ")[1]) + "\n" +
             playerHand +
             "-".repeat(screenWidth) + "\n"
+        );
+    }
+
+    public static void printGraveyard(Player player) {
+        String graveyard = "";
+        for(Card card : player.getGrave()) {
+            if(card instanceof CreatureCard) {
+                CreatureCard c = (CreatureCard) card;
+                graveyard = graveyard.concat(cardIndent + (player.getGrave().indexOf(card)+1) + ". " + c.title + ", HP: " + c.health + "/" + c.maxHealth + " DMG: " + c.damage + "\n");
+            }
+            if(card instanceof SpellCard) {
+                SpellCard c = (SpellCard) card;
+                graveyard = graveyard.concat(cardIndent + (player.getGrave().indexOf(card)+1) + ". " + c.title + ", HEAL: " + c.health + " DMG: " + c.damage + "\n");
+            }
+        }
+
+        System.out.println(
+            "-".repeat(calcPadding(" Graveyard ")[0]) + " Graveyard " + "-".repeat(calcPadding(" Graveyard ")[1]) + "\n" +
+            "\n" +
+            graveyard + "\n" +
+            "-".repeat(screenWidth)
         );
     }
 
