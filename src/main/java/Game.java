@@ -65,7 +65,7 @@ public class Game {
     public void playerChangeScreen() {
         if(turnCount!=1) Screen.printSpacing(100);
         Screen.printPlayerStart(player,turnCount);
-        Input.text("Enter nothing to continue: ", new String[]{""});
+        Input.text("Press enter when ready -> ", new String[]{""});
         Screen.printSpacing(100);
     }
 
