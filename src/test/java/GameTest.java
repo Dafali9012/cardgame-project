@@ -5,7 +5,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest {
-    List<Card> deck = Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard"));
+    List<Card> deck = Cards.generateDeck(Cards.getCardTemplates("/card_templates/standard"));
     List<Card> to = new ArrayList<>();
     Player player = new Player("Daniel", 5, 100);
     CreatureCard creature = new CreatureCard("Dafali", "Your code sucks!", new String[0], 4, 2);
