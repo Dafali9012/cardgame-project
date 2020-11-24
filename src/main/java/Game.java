@@ -144,6 +144,7 @@ public class Game {
             else if(iSplit[0].equals("opponent")) target = this.opponent;
 
             if(iSplit[1].equals("healone")) {
+                assert target != null;
                 if(target.getPlay().size()==0) {
                     System.out.println("No targets available");
                     return false;
@@ -152,16 +153,19 @@ public class Game {
                 modifyHealth(((SpellCard) card).health, (CreatureCard) target.getPlay().get(input-1));
             }
             if(iSplit[1].equals("healall")) {
+                assert target != null;
                 for(Card cardInPlay : target.getPlay()) {
                     modifyHealth(((SpellCard) card).health, (CreatureCard) cardInPlay);
                 }
                 modifyHealth(((SpellCard) card).health, target);
             }
             if(iSplit[1].equals("healself")) {
+                assert target != null;
                 modifyHealth(((SpellCard) card).health, target);
             }
 
             if(iSplit[1].equals("dmgone")) {
+                assert target != null;
                 if(target.getPlay().size()==0) modifyHealth(((SpellCard) card).damage*-1, target);
                 else {
                     int input = Input.number("choose target: ", 1, target.getPlay().size());
@@ -169,17 +173,20 @@ public class Game {
                 }
             }
             if(iSplit[1].equals("dmgall")) {
+                assert target != null;
                 for(Card cardInPlay : target.getPlay()) {
                     modifyHealth(((SpellCard) card).damage*-1, (CreatureCard) cardInPlay);
                 }
                 modifyHealth(((SpellCard) card).damage*-1, target);
             }
             if(iSplit[1].equals("dmgself")) {
+                assert target != null;
                 modifyHealth(((SpellCard) card).damage*-1, target);
             }
 
             if(iSplit[1].equals("ress")) {
-                if(!target.getGrave().stream().anyMatch(CreatureCard.class::isInstance)) {
+                assert target != null;
+                if(target.getGrave().stream().noneMatch(CreatureCard.class::isInstance)) {
                     System.out.println("No cards applicable for resurrection");
                     return false;
                 }
