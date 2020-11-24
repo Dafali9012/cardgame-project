@@ -6,7 +6,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InputHandlerTest {
-    private List<String> validAnswers = new ArrayList<>(List.of("yes","no"));
+    private final List<String> validAnswers = new ArrayList<>(List.of("yes","no"));
 
     //simulate user input of value 1 with string prompt and max value as parameter.
     @Test
