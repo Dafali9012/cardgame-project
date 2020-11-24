@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class Player {
+public class Player implements Damagable {
 
     private final String name;
     private int health;
@@ -29,18 +28,10 @@ public class Player {
         this.health = maxHealth;
     }
 
-    /**
-     * negative values for harm makes actual harm(subtracts the health)
-     */
-    public void modifyHealth(int harm){
-        int recent = (this.health + harm);
-        if(recent > maxHealth){
-            this.health = this.maxHealth;
-        }
-        else if(recent < 0){
-            this.health = 0;
-        }
-        else this.health = recent;
+    public void modifyHealth(int amount) {
+        int result = this.health + amount;
+        if(result < 0) this.health = 0;
+        else this.health = Math.min(result, this.maxHealth);
     }
 
     public List<Card> setDeck(List<Card> deck){

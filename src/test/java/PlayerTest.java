@@ -13,8 +13,8 @@ class PlayerTest {
         @BeforeEach
         public void beforeTest(){
             player = new Player("David", 5, 100);
-            deck = Cards.generateDeck(Cards.getCardTemplates("res/card-templates"));
-            to = Cards.generateDeck(Cards.getCardTemplates("res/card-templates"));
+            deck = Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard"));
+            to = Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard"));
         }
 
         @Test
@@ -52,7 +52,6 @@ class PlayerTest {
             assertEquals(0, player.getHealth());
         }
 
-        @Test
         public void setDeckTest () {
             assertEquals(player.setDeck(deck), player.getDeck(), "Adding to deck failed");
             assertFalse(player.getDeck().isEmpty(), "Should not be null");

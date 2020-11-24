@@ -1,4 +1,4 @@
-public class CreatureCard extends Card {
+public class CreatureCard extends Card implements Damagable {
     public int maxHealth, health, defaultDamage, damage;
 
     public CreatureCard() {
@@ -26,5 +26,13 @@ public class CreatureCard extends Card {
     public void modifyDamage(int amount) {
         int result = this.damage + amount;
         this.damage = Math.max(result, 0);
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
     }
 }
