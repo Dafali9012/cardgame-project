@@ -13,8 +13,8 @@ class PlayerTest {
         @BeforeEach
         public void beforeTest(){
             player = new Player("David", 5, 100);
-            deck = Cards.generateDeck(Cards.getCardTemplates("/card_templates/standard"));
-            to = Cards.generateDeck(Cards.getCardTemplates("/card_templates/standard"));
+            deck = Cards.generateDeck(Cards.getCardTemplates("card_templates/standard"));
+            to = Cards.generateDeck(Cards.getCardTemplates("card_templates/standard"));
         }
 
         @Test
