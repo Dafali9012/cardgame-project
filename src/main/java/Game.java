@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    boolean test = false;
     Player[] players;
     Player player;
     Player opponent;
@@ -10,41 +9,31 @@ public class Game {
     boolean gameOver = false;
 
     public Game() {
-        players = new Player[2];
-
-        players[0] = new Player("p1", 1, 100);
-        players[1] = new Player("p2", 2, 100);
-
-        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard")));
-        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard")));
-
-        drawCard(players[0]);
-        drawCard(players[1]);
-
+        initialSetup();
         playerTurn();
     }
 
     public Game(boolean test) {
-        this.test = test;
+        initialSetup();
+        if(test) updatePlayers();
+        else playerTurn();
+    }
 
+    private void initialSetup() {
         players = new Player[2];
 
         players[0] = new Player("p1", 1, 100);
         players[1] = new Player("p2", 2, 100);
 
-        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard")));
-        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("res/card_templates/standard")));
+        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("/card_templates/standard")));
+        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("/card_templates/standard")));
 
         drawCard(players[0]);
         drawCard(players[1]);
-
-        playerTurn();
     }
 
     public void playerTurn() {
         updatePlayers();
-
-        if(this.test) return;
 
         playerChangeScreen();
 
