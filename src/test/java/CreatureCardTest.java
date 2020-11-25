@@ -40,7 +40,7 @@ public class CreatureCardTest {
         creatureCard.modifyHealth(2);
         assertEquals(4, creatureCard.health);
         creatureCard.modifyHealth(-100);
-        assertEquals(0, creatureCard.health);
+        assertEquals(-96, creatureCard.health);
     }
 
     @Test

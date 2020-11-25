@@ -22,8 +22,8 @@ public class Game {
     private void initialSetup() {
         players = new Player[2];
 
-        players[0] = new Player("p1", 1, 100);
-        players[1] = new Player("p2", 2, 100);
+        players[0] = new Player("p1", 1, 40);
+        players[1] = new Player("p2", 2, 40);
 
         players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("card_templates/standard")));
         players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("card_templates/standard")));
@@ -132,45 +132,32 @@ public class Game {
             if(iSplit[0].equals("player")) target = this.player;
             else if(iSplit[0].equals("opponent")) target = this.opponent;
 
-            if(iSplit[1].equals("healone")) {
-                assert target != null;
-                if(target.getPlay().size()==0) {
-                    System.out.println("No targets available");
-                    return false;
-                }
-                int input = Input.number("choose target: ", 1, target.getPlay().size());
-                modifyHealth(((SpellCard) card).health, (CreatureCard) target.getPlay().get(input-1));
-            }
-            if(iSplit[1].equals("healall")) {
-                assert target != null;
-                for(Card cardInPlay : target.getPlay()) {
-                    modifyHealth(((SpellCard) card).health, (CreatureCard) cardInPlay);
-                }
-                modifyHealth(((SpellCard) card).health, target);
-            }
-            if(iSplit[1].equals("healself")) {
-                assert target != null;
-                modifyHealth(((SpellCard) card).health, target);
-            }
+            assert target != null;
 
-            if(iSplit[1].equals("dmgone")) {
-                assert target != null;
-                if(target.getPlay().size()==0) modifyHealth(((SpellCard) card).damage*-1, target);
-                else {
-                    int input = Input.number("choose target: ", 1, target.getPlay().size());
-                    modifyHealth(((SpellCard) card).damage*-1, (CreatureCard) target.getPlay().get(input-1));
+            if(iSplit[1].equals("modhp")) {
+                int amount = iSplit[3].equals("heal")?((SpellCard)card).health:iSplit[3].equals("dmg")?((SpellCard)card).damage*-1:0;
+                if(iSplit[2].equals("one")) {
+                    if(target.getPlay().size()==0) {
+                        if(iSplit[0].equals("opponent")) modifyHealth(amount, target);
+                        else {
+                            System.out.println("No target available");
+                            return false;
+                        }
+                    } else {
+                        int input = Input.number("choose target (0 = cancel): ", 0, target.getPlay().size());
+                        if(input==0) return false;
+                        modifyHealth(amount, (CreatureCard) target.getPlay().get(input-1));
+                    }
                 }
-            }
-            if(iSplit[1].equals("dmgall")) {
-                assert target != null;
-                for(Card cardInPlay : target.getPlay()) {
-                    modifyHealth(((SpellCard) card).damage*-1, (CreatureCard) cardInPlay);
+                if(iSplit[2].equals("all")) {
+                    for(Card cardInPlay : target.getPlay()) {
+                        modifyHealth(amount, (CreatureCard) cardInPlay);
+                    }
+                    modifyHealth(amount, target);
                 }
-                modifyHealth(((SpellCard) card).damage*-1, target);
-            }
-            if(iSplit[1].equals("dmgself")) {
-                assert target != null;
-                modifyHealth(((SpellCard) card).damage*-1, target);
+                if(iSplit[2].equals("self")) {
+                    modifyHealth(amount, target);
+                }
             }
 
             if(iSplit[1].equals("ress")) {
