@@ -24,7 +24,7 @@ public abstract class Input {
         while(true) {
             input = scan.nextLine();
             for(String c : validInput) {
-                if(input.toLowerCase().equals(c.toLowerCase())) {
+                if(input.matches(c)) {
                     return input.toLowerCase();
                 }
             }
