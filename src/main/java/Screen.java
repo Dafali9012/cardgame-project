@@ -5,9 +5,9 @@ public abstract class Screen {
     public static void printGameState(Player player, Player opponent, int turnCount) {
         String gameTitle = " ~* Goblins and Glitches *~ ";
         String subTitle = "-- Revenge of the Rat King --";
-        String opponentHp = "HP: "+opponent.getHealth()+" / 100";
+        String opponentHp = "HP: "+opponent.getHealth()+" / "+opponent.getMaxHealth();
         String pl = "Player "+player.getId();
-        String playerHp = "HP: "+player.getHealth()+" / 100";
+        String playerHp = "HP: "+player.getHealth()+" / "+player.getMaxHealth();
         String opponentPlay = "";
         String playerPlay = "";
         String playerHand = "";
