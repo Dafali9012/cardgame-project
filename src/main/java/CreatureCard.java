@@ -19,8 +19,7 @@ public class CreatureCard extends Card implements Damagable {
 
     public void modifyHealth(int amount) {
         int result = this.health + amount;
-        if(result < 0) this.health = 0;
-        else this.health = Math.min(result, this.maxHealth);
+        this.health = Math.min(result, this.maxHealth);
     }
 
     public void modifyDamage(int amount) {
