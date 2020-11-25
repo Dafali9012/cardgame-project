@@ -225,6 +225,7 @@ public class Game {
             }
         }
         if(target instanceof CreatureCard) {
+            if(target.getHealth()<0) modifyHealth(target.getHealth(), opponent);
             if (target.getHealth()<1){
                 moveCard(opponent.getPlay().indexOf(target), opponent.getPlay(),opponent.getGrave());
                 modifyHealth(target.getMaxHealth()*-1,opponent);
