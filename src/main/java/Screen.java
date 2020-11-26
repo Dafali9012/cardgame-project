@@ -1,6 +1,6 @@
 public abstract class Screen {
-    private static final int screenWidth = 64;
-    private static final String cardIndent = " ".repeat(screenWidth/4);
+    private static final int screenWidth = 128;
+    private static final String cardIndent = " ".repeat((int) (screenWidth/2.6));
     private static final String gameTitle = " ~* Goblins and Glitches *~ ";
     private static final String subTitle = "-- Revenge of the Rat King --";
 

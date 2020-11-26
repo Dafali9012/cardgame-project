@@ -62,10 +62,11 @@ public class Game {
     }
 
     public void playerChangeScreen() {
-        if(turnCount!=1) Screen.printSpacing(100);
+        if(turnCount!=1) Screen.printSpacing(50);
         Screen.printPlayerStart(player,turnCount);
+        Screen.printSpacing(1);
         Input.text("Enter anything when ready: ", new String[]{".*"});
-        Screen.printSpacing(100);
+        Screen.printSpacing(1);
     }
 
     public void drawCard(Player player) {
@@ -103,7 +104,7 @@ public class Game {
                     selectedCard instanceof SpellCard && typesPlayed.stream().anyMatch("spell"::equals)) {
 
                 System.out.println("You may only play one card of each type");
-                input = Input.number("Play card ("+cardNum+"/"+maxCards+", skip=0): ", 0, player.getHand().size());
+                input = Input.number("Play card ("+cardNum+"/"+maxCards+", 0 = skip): ", 0, player.getHand().size());
                 if(input==0) return;
                 selectedCard = player.getHand().get(input-1);
             }
@@ -205,14 +206,12 @@ public class Game {
     }
 
     public void updatePlayers() {
-        for(Player player : players) {
-            if(turnCount % 2 == 0) {
-                this.player = players[1];
-                this.opponent = players[0];
-            } else {
-                this.player = players[0];
-                this.opponent = players[1];
-            }
+        if(turnCount % 2 == 0) {
+            this.player = players[1];
+            this.opponent = players[0];
+        } else {
+            this.player = players[0];
+            this.opponent = players[1];
         }
     }
 
@@ -222,6 +221,7 @@ public class Game {
 
     public boolean gameOverCheck() {
         if(gameOver) {
+            Screen.printSpacing(1);
             Screen.printGameOver(player, turnCount);
             return true;
         }
