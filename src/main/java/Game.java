@@ -81,9 +81,12 @@ public class Game {
         CreatureCard attacker = (CreatureCard) player.getPlay().get(input-1);
         if(opponent.getPlay().size()==0) modifyHealth(attacker.damage*-1, opponent);
         else {
-            input = Input.number("Choose target: ", 1, opponent.getPlay().size());
-            CreatureCard target = (CreatureCard) opponent.getPlay().get(input-1);
-            modifyHealth(attacker.damage*-1, target);
+            input = Input.number("Choose target (0 = cancel): ", 0, opponent.getPlay().size());
+            if(input == 0) attack();
+            else {
+                CreatureCard target = (CreatureCard) opponent.getPlay().get(input-1);
+                modifyHealth(attacker.damage*-1, target);
+            }
         }
     }
 
