@@ -1,13 +1,24 @@
 public abstract class Screen {
     private static final int screenWidth = 64;
     private static final String cardIndent = " ".repeat(screenWidth/4);
+    private static final String gameTitle = " ~* Goblins and Glitches *~ ";
+    private static final String subTitle = "-- Revenge of the Rat King --";
+
+    public static void printTitleScreen() {
+        System.out.println(
+            "-".repeat(screenWidth) + "\n" +
+            "\n".repeat(10) +
+            " ".repeat(calcPadding(gameTitle)[0]) + gameTitle + "\n" +
+            " ".repeat(calcPadding(subTitle)[0]) + subTitle + "\n" +
+            "\n".repeat(10) +
+            "-".repeat(screenWidth) + "\n"
+        );
+    }
 
     public static void printGameState(Player player, Player opponent, int turnCount) {
-        String gameTitle = " ~* Goblins and Glitches *~ ";
-        String subTitle = "-- Revenge of the Rat King --";
-        String opponentHp = "HP: "+opponent.getHealth()+" / 100";
+        String opponentHp = "HP: "+opponent.getHealth()+" / "+opponent.getMaxHealth();
         String pl = "Player "+player.getId();
-        String playerHp = "HP: "+player.getHealth()+" / 100";
+        String playerHp = "HP: "+player.getHealth()+" / "+player.getMaxHealth();
         String opponentPlay = "";
         String playerPlay = "";
         String playerHand = "";

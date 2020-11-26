@@ -10,23 +10,33 @@ public class Game {
 
     public Game() {
         initialSetup();
+        Screen.printTitleScreen();
+        Input.text("Enter anything to start game: ", new String[]{".*"});
+        Screen.printSpacing(1);
         playerTurn();
     }
 
     public Game(boolean test) {
         initialSetup();
         if(test) updatePlayers();
-        else playerTurn();
+        else {
+            Screen.printTitleScreen();
+            Input.text("Enter anything to start game: ", new String[]{".*"});
+            Screen.printSpacing(1);
+            playerTurn();
+        }
     }
 
     private void initialSetup() {
         players = new Player[2];
 
-        players[0] = new Player("p1", 1, 40);
-        players[1] = new Player("p2", 2, 40);
+        players[0] = new Player("p1", 1, 20);
+        players[1] = new Player("p2", 2, 20);
 
-        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("card_templates/standard")));
-        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("card_templates/standard")));
+        CardTemplate[] cardTemplates = Cards.getCardTemplates("card_templates/standard");
+
+        players[0].setDeck(Cards.generateDeck(cardTemplates));
+        players[1].setDeck(Cards.generateDeck(cardTemplates));
 
         drawCard(players[0]);
         drawCard(players[1]);
