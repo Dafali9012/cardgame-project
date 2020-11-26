@@ -103,7 +103,7 @@ public class Game {
                     selectedCard instanceof SpellCard && typesPlayed.stream().anyMatch("spell"::equals)) {
 
                 System.out.println("You may only play one card of each type");
-                input = Input.number("Play card ("+cardNum+"/"+maxCards+", skip=0): ", 0, player.getHand().size());
+                input = Input.number("Play card ("+cardNum+"/"+maxCards+", 0 = skip): ", 0, player.getHand().size());
                 if(input==0) return;
                 selectedCard = player.getHand().get(input-1);
             }
