@@ -25,8 +25,10 @@ public class Game {
         players[0] = new Player("p1", 1, 40);
         players[1] = new Player("p2", 2, 40);
 
-        players[0].setDeck(Cards.generateDeck(Cards.getCardTemplates("card_templates/standard")));
-        players[1].setDeck(Cards.generateDeck(Cards.getCardTemplates("card_templates/standard")));
+        CardTemplate[] cardTemplates = Cards.getCardTemplates("card_templates/standard");
+
+        players[0].setDeck(Cards.generateDeck(cardTemplates));
+        players[1].setDeck(Cards.generateDeck(cardTemplates));
 
         drawCard(players[0]);
         drawCard(players[1]);

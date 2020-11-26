@@ -40,8 +40,8 @@ public class GameTest {
         game.modifyHealth(100, creature);
         assertEquals(creature.maxHealth, creature.health);
 
-//        game.modifyHealth(-100, creature);
-//        assertEquals(0, creature.health);
+        game.modifyHealth(-100, creature);
+        assertEquals(-96, creature.health);
     }
 
     @Test

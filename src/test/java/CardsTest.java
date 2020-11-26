@@ -7,25 +7,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CardsTest {
     @Test
     public void getCardSettings() {
-        /*
-        CardSettings cardSettings = Utils.getCardSettings("res/standard");
-        assertNotNull(cardSettings);
-        assertNotEquals(0,cardSettings.creatures.size());
-        assertNotEquals(0,cardSettings.spells.size());
-
-         */
+        CardTemplate[] cardTemplates = Cards.getCardTemplates("card_templates/standard");
+        assertTrue(cardTemplates.length>0);
     }
 
     @Test
     public void generateDeck() {
-        /*
-        CardSettings cardSettings = Utils.getCardSettings("res/standard");
-        List<Card> newDeck = Utils.generateDeck(cardSettings);
-        assertNotNull(newDeck);
-        assertTrue(newDeck.size() >= cardSettings.creatures.size()+cardSettings.spells.size());
-        newDeck = Utils.generateDeck(null);
-        assertNull(newDeck);
-
-         */
+        CardTemplate[] cardTemplates = Cards.getCardTemplates("card_templates/standard");
+        assertTrue(cardTemplates.length>0);
+        List<Card> newDeck = Cards.generateDeck(cardTemplates);
+        assertTrue(newDeck.size()>0);
     }
 }

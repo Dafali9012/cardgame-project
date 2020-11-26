@@ -2,6 +2,10 @@ public abstract class Screen {
     private static final int screenWidth = 64;
     private static final String cardIndent = " ".repeat(screenWidth/4);
 
+    public static void printTitleScreen() {
+
+    }
+
     public static void printGameState(Player player, Player opponent, int turnCount) {
         String gameTitle = " ~* Goblins and Glitches *~ ";
         String subTitle = "-- Revenge of the Rat King --";
