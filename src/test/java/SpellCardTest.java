@@ -5,10 +5,8 @@ public class SpellCardTest {
 
     @Test
     public void emptyConstructor() {
-        SpellCard spellCard = null;
-
         try {
-            spellCard = new SpellCard();
+            new SpellCard();
         } catch (Exception e) {
             fail();
         }
