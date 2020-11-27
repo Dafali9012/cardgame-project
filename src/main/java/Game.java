@@ -175,7 +175,6 @@ public class Game {
             }
 
             if(iSplit[1].equals("ress")) {
-                assert target != null;
                 if(target.getGrave().stream().noneMatch(CreatureCard.class::isInstance)) {
                     System.out.println("No cards applicable for resurrection");
                     return false;
@@ -202,6 +201,7 @@ public class Game {
                     }
                     selectedCard = target.getGrave().get(input-1);
                 }
+                ((Damagable)selectedCard).modifyHealth(((SpellCard)card).health);
                 moveCard(input-1, target.getGrave(), target.getHand());
             }
         }
