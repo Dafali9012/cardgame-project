@@ -81,9 +81,12 @@ public class Game {
         CreatureCard attacker = (CreatureCard) player.getPlay().get(input-1);
         if(opponent.getPlay().size()==0) modifyHealth(attacker.damage*-1, opponent);
         else {
-            input = Input.number("Choose target: ", 1, opponent.getPlay().size());
-            CreatureCard target = (CreatureCard) opponent.getPlay().get(input-1);
-            modifyHealth(attacker.damage*-1, target);
+            input = Input.number("Choose target (0 = cancel): ", 0, opponent.getPlay().size());
+            if(input == 0) attack();
+            else {
+                CreatureCard target = (CreatureCard) opponent.getPlay().get(input-1);
+                modifyHealth(attacker.damage*-1, target);
+            }
         }
     }
 
@@ -172,7 +175,6 @@ public class Game {
             }
 
             if(iSplit[1].equals("ress")) {
-                assert target != null;
                 if(target.getGrave().stream().noneMatch(CreatureCard.class::isInstance)) {
                     System.out.println("No cards applicable for resurrection");
                     return false;
@@ -199,6 +201,7 @@ public class Game {
                     }
                     selectedCard = target.getGrave().get(input-1);
                 }
+                ((Damagable)selectedCard).modifyHealth(((SpellCard)card).health);
                 moveCard(input-1, target.getGrave(), target.getHand());
             }
         }
