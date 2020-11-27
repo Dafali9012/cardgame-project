@@ -6,7 +6,7 @@ public class CreatureCardTest {
     @Test
     public void emptyConstructor() {
         try {
-            CreatureCard creatureCard = new CreatureCard();
+            new CreatureCard();
         } catch (Exception e) {
             fail();
         }
